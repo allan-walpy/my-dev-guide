@@ -1,60 +1,72 @@
-# Issue and Pull Requests Labels
+# issue and pull requests labels
 
-Issue labes managed by repository onwer
+> issues code presented here optimimised for gitlab and their
+> [scope labels](https://gitlab.com/help/user/project/labels.md#scoped-labels);
 
-## Label Type
+## Type
 
-scope `is`;
+> scope `is`; color: `#ccc`;
 
-**single** label is **requeired** for **any** issues;
+> **single** label is **requeired** for **any** issues;
 
-- `is::bug` - issue about bug;
-- `is::feature` - issue about new features;
-- `is::improvement` - issue about improving app code etc;
-- `is::merge` - issue about merge/pull request;
-- `is::hotfix` - issue about hotfix;
-- `is::question` - issue for questions and disscussions;
+| code              | remark                       |
+| :---------------- | :--------------------------- |
+| `is::bug`         | bug and unexpected behavior  |
+| `is::feature`     | new functionality            |
+| `is::hotfix`      | hotfix for released version  |
+| `is::improvement` | improving code & features    |
+| `is::merge`       | merge/pull request           |
+| `is::question`    | question/discussion/proposal |
 
-## Label Priority
+## Priority
 
-scope `priority`;
+> scope `priority`; color: **depend on label**;
 
-**single** label is **required** for **opened** issues with **iteration`#`** milestone assigned;
+> **single** label is **required** for **opened** issues with **iteration #any** milestone;
 
-- `priority::green` - minor priority;
-- `priority::yellow` - above average priority;
-- `priority::red` - critical priority;
-- `priority::critical` - super critical priority (typicaly used for hotfixes of important things);
+| code               | color  | remark   |
+| :----------------- | :----: | :------- |
+| `priority::green`  | `#4a4` | low      |
+| `priority::orange` | `#f80` | medium   |
+| `priority::red`    | `#f44` | high     |
+| `priority::red`    | `#000` | blocking |
 
-## Label Scope
+## Scope
 
-scope `scope`;
+> scope `scope`; color: `#448`; postfix: `::_`;
 
-label is **optional**
+> **at least one** label is **optional** for **any** issues;
 
-- `scope::common` - issue with not determined scope or with multiply scopes;
-- `scope::project` - issue affects repository managment;
-- `scope::core` - issue affects project code;
-- `scope::test` - issue affects tests; NB! affected only incorrect/buggy tests, correct failed tests not affected;
+| code                   | remark                        |
+| :--------------------- | :---------------------------- |
+| `scope::code::_`       | affects actual program code   |
+| `scope::code::arch::_` | affects program architecture  |
+| `scope::repo::_`       | affects repository management |
+| `scope::test::_`       | affects tests                 |
 
-## Label Stage
+## Stage
 
-scope `stage`;
+> scope `stage`; color: `#48a`, `#000` for `x` stage;
 
-**single** label is **optional** for **opened** issues
+> **single** label is **required** for **opened** issues with **iteration #current** milestone;
+>
+> except: **x** label is **required** for **any** **closed** isuues;
 
-- `stage::on_hold` - issue soon be addressed, or hold until some other issues resolved;
-- `stage::in_process` - issue is being resolving;
-- `stage::on_closing` - issue resolve is on review;
-- `stage::closed` - **required** for any **closed** issues;
+| code                | remark      |
+| :------------------ | :---------- |
+| `stage::holding`    | on hold     |
+| `stage::processing` | in progress |
+| `stage::x`          | closed      |
 
-## Label Cause of Closure
+## Cause of Closure
 
-scope `stage::closed`;
+> scope `stage::x`; color: `#000`;
 
-**single** label is **optional** for **closed** issues
+> **at least one** label *including `stage::x` label* is **required** for **closed** issues;
 
-- `stage::closed::done` - issue resolved/fixed/done;
-- `stage::closed::invalid` - issue not aproved, not an issue;
-- `stage::closed::invalid::duplicate` - issue already exists;
-- `stage::closed::rejected` - declined pull requests, not inplemented issues, never fixing bugs etc;
+| code                       | remark                                         |
+| :------------------------- | :--------------------------------------------- |
+| `stage::x::done`           | merged/resolved/fixed/implemented/done         |
+| `stage::x::invalid`        | not an issue                                   |
+| `stage::x::invalid::clone` | duplicate                                      |
+| `stage::x::rejected`       | declined/won't fix/won't merge/won't implement |
