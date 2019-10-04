@@ -1,0 +1,14 @@
+default:
+  image: pipelinecomponents/markdownlint:latest
+
+variables:
+  GIT_STRATEGY: fetch
+  GIT_SUBMODULE_STRATEGY: none
+
+stages:
+  - lint
+
+lint:
+  stage: lint
+  script:
+    - mdl --style all --warnings .
