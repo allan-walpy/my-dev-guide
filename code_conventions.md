@@ -147,10 +147,11 @@ instead of some concrete collection class
 
 > **Exceptions**
 >
-> - Readonly collection `IReadOnlyCollection<T>`, `IReadOnlyList<T>`,
->   `IReadOnlyDictionary<TKey, TValue>`
-> - Immutable collections `ImmutableArray<T>`, `ImmutableList<T>`
->   and `ImmutableDictionary<TKey, TValue>`
+> Readonly collection `IReadOnlyCollection<T>`, `IReadOnlyList<T>`,
+> `IReadOnlyDictionary<TKey, TValue>`
+>
+> Immutable collections `ImmutableArray<T>`, `ImmutableList<T>`
+> and `ImmutableDictionary<TKey, TValue>`
 
 ### Strings or collections should never be `null`
 
