@@ -2,7 +2,8 @@
 
 see also [managing branches with git commands](https://github.com/Kunena/Kunena-Forum/wiki/Create-a-new-branch-with-git-and-manage-branches)
 
-in avoiding direct commits to `master` branches and pull requests take place; this document covers `git` and `vs code`;
+in avoiding direct commits to `master` branches and pull requests take place;
+this document covers `git` and `vs code`;
 
 - `git shell` can be accessed with bash;
 
@@ -70,4 +71,5 @@ in avoiding direct commits to `master` branches and pull requests take place; th
 
 - wait until pull request is closed
 
-  > **suggesting** to delete branch after merging and closing pull request on both server and local machine;
+  > **suggesting** to delete branch after merging and closing pull request
+  > on both server and local machine;

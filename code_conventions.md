@@ -8,15 +8,17 @@ Choose a solution that everyone can understand, and that keeps them on right tra
 
 ### Keep It Simple Stupid
 
-The simplest soluon is more than sufficient
+The simplest solution is more than sufficient
 
 ### You Ain't Gonna Need It
 
-Create a soluon for the problem at hand, not for the ones you think may happen later on
+Create a solution for the problem at hand,
+not for the ones you think may happen later on
 
 ### Don't Repeat Yourself
 
-Avoid duplicaon within a component, a source control repository or a bounded context
+Avoid duplication within a component, a source control repository
+or a bounded context
 
 ### The 4 principles of object oriented programming
 
@@ -40,66 +42,74 @@ Provision of a single interface to entities of different types
 
 ### Single Responsibility Principle
 
-A class, interface or method should have a single purpose within the system it functions in
+A class, interface or method should have a single purpose
+within the system it functions in
 
 ### Interface Segregation Principle
 
-Interfaces should have a name that clearly explains their purpose or role in the system
+Interfaces should have a name that clearly explains their purpose
+or role in the system
 
-> **Do not** combine many vaguely related members on the same interface just because they were all
-> on the same class
+> **Do not** combine many vaguely related members on the same
+> interface just because they were all on the same class
 
-### Usefull Constructors
+### Useful Constructors
 
-Only create a constructor that returns a useful object. There should be no need to set addional
-propeties before the object can be used for whatever purpose it was designed
+Only create a constructor that returns a useful object.
+There should be no need to set additional properties
+before the object can be used for whatever purpose it was designed
 
-> **NB!** If your constructor needs more than 3 parameters, your class might have too much
-> responsibility
+> **NB!** If your constructor needs more than 3 parameters, your class
+> might have too much responsibility
 
 ### Use interface to decouple classes from each other
 
-Interfaces are a very effecve mechanism for decoupling classes from each other
+Interfaces are a very effective mechanism
+for decoupling classes from each other
 
-> **NB!** Using a dependency injecon you can centralize the choice of which class is used whenever
-> a specific interface is requested
+> **NB!** Using a dependency injections you can centralize
+> the choice of which class is used whenever a specific interface
+> is requested
 
 ### Use interface class rather than base class
 
-Use an interface rather than a base class to support mulple implementaons
+Use an interface rather than a base class to support multiply implementations
 
-> **NB!** You may implement an abstract default implementaon of interface that can serve as a starng
-> point
+> **NB!** You may implement an abstract default implementation of
+> interface that can serve as a starting point
 
 ### Avoid static classes
 
-Static classes very often lead to badly designed code. They are also very difficult to test in
-isolation
+Static classes very often lead to badly designed code.
+They are also very difficult to test in isolation
 
 > **Exception** are extension method containers
 
 ### Liskov Substitution Principle
 
-It should be possible to treat a derived object as if it were a base class object. You should be
-able to use a reference to an object of a derived class wherever a reference to its base class
-object is used without knowing the specific derived class
+It should be possible to treat a derived object as if it were a base
+class object. You should be able to use a reference to an object of
+a derived class wherever a reference to its base class object is used
+without knowing the specific derived class
 
 ### Avoid exposing the other objects an object depends on
 
 > In simple words: `someObject.SomeProperty.GetChild().Foo();`
 
-An object should not expose any other classes it depends on because callers may misuse that exposed
-property or method to access the object behind it
+An object should not expose any other classes it depends on
+because callers may misuse that exposed property or method
+to access the object behind it
 
-> **NB!** Using a class that is designed using the Fluent Interface pattern seems to violate this
-> rule, but it is simply returning itself so that method chaining is allowed
+> **NB!** Using a class that is designed using
+> the Fluent Interface pattern seems to violate this rule,
+> but it is simply returning itself so that method chaining is allowed
 
 ## Member Design
 
-### Allow properes to be set in any order
+### Allow properties to be set in any order
 
-There should not be a difference between first setting property `DataSource` and then `DataMember`
-or vice-versa.
+There should not be a difference between first setting
+property `DataSource` and then `DataMember` or vice-versa.
 
 ### Use a method instead of a property
 
@@ -107,12 +117,14 @@ or vice-versa.
 
 - If it represents a conversion such as the `Object.ToString` method
 
-- If it returns a different result each time it is called, even if the arguments didn't change
+- If it returns a different result each time it is called,
+  even if the arguments didn't change
 
-  > For example, the `NewGuid` method returns a different value each time me it is called
+  > For example, the `NewGuid` method returns a different value
+  > each time me it is called
 
-- If the operation causes a side effect such as changing some internal state not directly related
-  to the property
+- If the operation causes a side effect such as changing some
+  internal state not directly related to the property
 
 ### Do not use mutually exclusive properties
 
@@ -120,25 +132,31 @@ or vice-versa.
 
 ### Do not expose stateful objects through static members
 
-> A stateful object is an object that contains many properes and lots of behavior behind it.
+> A stateful object is an object that contains many properes
+> and lots of behavior behind it.
 
-If you expose such an object through a static property or method of some other object, it will be
-very difficult to refactor or unit test a class that relies on such a stateful object.
+If you expose such an object through a static property or method
+of some other object, it will be very difficult
+to refactor or unit test a class that relies on such a stateful object.
 
 ### Return an built in interfaces for collections
 
-Return an built in interfaces for collections, such as `IEnumerable<T>`, `ICollection<T>` or
-`IList<T>`, instead of some concrete collection class
+Return an built in interfaces for collections, such as
+`IEnumerable<T>`, `ICollection<T>` or `IList<T>`,
+instead of some concrete collection class
 
-> **Excepons**
+> **Exceptions**
 >
-> - Readonly collection `IReadOnlyCollection<T>`, `IReadOnlyList<T>`, `IReadOnlyDictionary<TKey, TValue>`
-> - Immutable collecons `ImmutableArray<T>`, `ImmutableList<T>` and `ImmutableDictionary<TKey, TValue>`
+> - Readonly collection `IReadOnlyCollection<T>`, `IReadOnlyList<T>`,
+>   `IReadOnlyDictionary<TKey, TValue>`
+> - Immutable collections `ImmutableArray<T>`, `ImmutableList<T>`
+>   and `ImmutableDictionary<TKey, TValue>`
 
-### Strings or collecons should never be `null`
+### Strings or collections should never be `null`
 
-Always return an empty collection or an empty string instead of a null reference. This also prevents
-cluttering your code base with addional checks for null, or even `String.IsNullOrEmpty()`.
+Always return an empty collection or an empty string instead of
+a null reference. This also prevents cluttering your code base
+with additional checks for null, or even `String.IsNullOrEmpty()`.
 
 ### Define parameters as specific as possible
 
@@ -146,21 +164,24 @@ Define parameters as specific as needed and don't take a container object instea
 
 > **NB!** `Do not ship the truck if you only need a package`
 
-### Use domain-specific value types, not primives
+### Use domain-specific value types, not primitives
 
-Instead of using strings, integers and decimals for represenng domain-specific types such as an ISBN
-number, an email address or amount of money, consider creating dedicated value objects that wrap
-both the data and the validation rules that apply to it
+Instead of using strings, integers and decimals for representing
+domain-specific types such as an ISBN number, an email address
+or amount of money, consider creating dedicated value objects
+that wrap both the data and the validation rules that apply to it
 
 ## Other Design
 
 ### Events
 
-- When dealing with events always use delegate `EventHandler` or its derivatives
+- When dealing with events always use delegate `EventHandler`
+  or its derivatives
 
 - Always check an event handler delegate for null
 
-  > Before invoking, always make sure that the delegate list represented by the event variable is
+  > Before invoking, always make sure that the delegate
+  > list represented by the event variable is
   > not null.
   >
   >```c#
@@ -172,66 +193,73 @@ both the data and the validation rules that apply to it
   > }
   >```
 
-#### Event parametrs
+#### Event parameters
 
-- Event parametrs must always be `EventArgs` or its derivative
-- Event parametrs always should be called `e`
+- Event parameters must always be `EventArgs` or its derivative
+- Event parameters always should be called `e`
 - `sender` must always be `object` type
 
 ### Throw exceptions instead of returning status value
 
-Structured exception handling has been introduced to allow you to throw excepons and catch or
-replace them at a higher layer. In most systems it is quite common to throw excepons whenever an
-unexpected situation occurs.
+Structured exception handling has been introduced to allow you
+to throw exceptions and catch or replace them at a higher layer.
+In most systems it is quite common to throw exceptions whenever
+an unexpected situation occurs.
 
 ### Provide a rich and meaningful exception message text
 
-The message should explain the cause of the exception, and clearly describe what needs to be done
-to avoid the exception.
+The message should explain the cause of the exception,
+and clearly describe what needs to be done to avoid the exception.
 
 ### Throw the most specific exception that is appropriate
 
-If a method receives a `null` argument, it should throw `ArgumentNullException` instead of its base
-type `ArgumentException` or `ApplicationException`.
+If a method receives a `null` argument, it should throw
+`ArgumentNullException` instead of its base type
+`ArgumentException` or `ApplicationException`.
 
 ### Don't swallow errors by catching generic exceptions
 
-Avoid swallowing errors by catching non-specific exceptions, such as `Exception`, `SystemException`
-and so on, in applicaon code. Only in top-level code, such as a last-chance excepon handler, you
-should catch a non-specific excepon for logging purposes and a graceful shutdown of the application
+Avoid swallowing errors by catching non-specific exceptions,
+such as `Exception`, `SystemException` and so on, in application code.
+Only in top-level code, such as a last-chance exception handler, you
+should catch a non-specific exception for logging purposes and a
+graceful shutdown of the application
 
 ### Properly handle exceptions in asynchronous code
 
-When throwing or handling exceptions in code that uses `async`/`await` or a `Task` remember the
-following two rules:
+When throwing or handling exceptions in code that uses
+`async`/`await` or a `Task` remember the following two rules:
 
-- Exceptions that occur within an `async`/`await` block and inside a `Task`'s action are propagated
-  to the awaiter
+- Exceptions that occur within an `async`/`await` block
+  and inside a `Task`'s action are propagated to the awaiter
 
-- Exceptions that occur in the code preceding the asynchronous block are propagated to the caller
+- Exceptions that occur in the code preceding
+  the asynchronous block are propagated to the caller
 
 ### Do not use `this` and `base` prefixes unless it is required
 
-In a class hierarchy, it is not necessary to know at which level a member is declared to use it
+In a class hierarchy, it is not necessary to know at which level
+a member is declared to use it
 
 ## Maintainability Guidelines
 
 ### Methods should not exceed 7 statements
 
-A method that requires more than 7 statements is simply doing too much or has too many
-responsibilies. Break it down into mulple small and focused methods with self-explaining names, but
+A method that requires more than 7 statements is simply doing
+too much or has too many responsibilities. Break it down into multiple
+small and focused methods with self-explaining names, but
 make sure the high-level algorithm is still clear.
 
 ### Make members private, types internal sealed as default
 
-To make a more conscious decision on which members to make available to other classes, first
-restrict the scope as much as possible. Then carefully decide what to expose as a public member or
-type
+To make a more conscious decision on which members to make available
+to other classes, first restrict the scope as much as possible.
+Then carefully decide what to expose as a public member or type
 
-### Avoid condions with double negatives
+### Avoid conditions with double negatives
 
-Although a property like `customer.HasNoOrders` makes sense, avoid using it in a negave condion like
-this:
+Although a property like `customer.HasNoOrders` makes sense,
+avoid using it in a negative condition like this:
 
 ```c#
 bool hasOrders = !customer.HasNoOrders;
@@ -239,15 +267,16 @@ bool hasOrders = !customer.HasNoOrders;
 
 ### Name assemblies after their contained namespace
 
-All DLLs should be named according to the pattern `Product.Component.dll` where `Product` refers to
-your product's name and `Component` contains one or more dot-separated clauses.
+All DLLs should be named according to the pattern
+`Product.Component.dll` where `Product` refers to your product's name
+and `Component` contains one or more dot-separated clauses.
 
 > **Example** `Vulmy.Client.Web.dll`
 
 ### Name a source file to the type it contains
 
-Use Pascal casing to name the file and don't use underscores. Don't include generic type parameters
-in the file name
+Use Pascal casing to name the file and don't use underscores.
+Don't include generic type parameters in the file name
 
 ### Limit the contents of a source code file to one type
 
@@ -255,13 +284,13 @@ in the file name
 >
 > - Nested types should be part of the same file
 >
-> - Types that only differ by their number of generic type parameters should be part of the same
->   file
+> - Types that only differ by their number of generic type parameters
+>   should be part of the same file
 
 ### Name partial class file according it's logical function
 
-When using pertial types and allocang a part per file, name each file after the logical part that
-part plays.
+When using partial types and allocating a part per file,
+name each file after the logical part that part plays.
 
 ```c#
 // MyClass.cs file;
@@ -278,7 +307,7 @@ partial class MyClass
 Limit usage of fully qualified type names to prevent name clashing.
 
 ```c#
-// avoid;
+// avoid;>   >
 var list = new System.Collections.Generic.List<string>();
 
 // valid;
@@ -287,7 +316,7 @@ using System.Collections.Generic;
 var list = new List<string>();
 ```
 
-If you do need to prevent name clashing, use a using direcve
+If you do need to prevent name clashing, use a using directive
 to assign an alias:
 
 ```c#
@@ -296,18 +325,18 @@ using Label = System.Web.UI.WebControls.Label;
 
 ### Do not use magic numbers
 
-Don't use literal values, either numeric or strings, in your code, other than to define symbolic
-constants.
+Don't use literal values, either numeric or strings, in your code,
+other than to define symbolic constants.
 
 ### Only use var when the type is very obvious
 
-Only use var as the result of a LINQ query, or if the type is very obvious from the same statement
-and using it would improve readability
+Only use var as the result of a LINQ query, or if the type is very
+obvious from the same statement and using it would improve readability
 
 ```c#
 // not valid;
 var item = 3;
-var myfoo = MyFactoryMethod.Create("arg");
+var myFoo = MyFactoryMethod.Create("arg");
 
 // valid;
 var query = from order
@@ -320,7 +349,7 @@ var list = new ReadOnlyCollection();
 
 ### Declare and initialize variables as late as possible
 
-Define and inialize each variable at the point where it is needed.
+Define and initialize each variable at the point where it is needed.
 
 ### Don't make explicit comparisons to true or false
 
@@ -364,7 +393,8 @@ for (int index = 0; index < 10; ++index)
 
 ### Avoid nested loops
 
-A method that nests loops is more difficult to understand than one with only a single loop
+A method that nests loops is more difficult to understand
+than one with only a single loop
 
 ### Always add a block after the keywords
 
@@ -372,8 +402,9 @@ Such as `if`, `else`, `do`, `while`, `for`, `foreach` and `case`
 
 ### Add a `default` block in the end of `switch` statement
 
-Add a descripve comment if the default block is supposed to be empty. If that block is not supposed
-to be reached throw an `InvalidOperationException`
+Add a descriptive comment if the default block is supposed
+to be empty. If that block is not supposed to be reached
+throw an `InvalidOperationException`
 
 ### Encapsulate complex expressions
 
@@ -395,7 +426,8 @@ if (NonConstructorMemberUsesNewKeyword(member))
 
 ### Call the more overloaded method from other overloads
 
-This guideline only applies to overloads that are intended to provide oponal arguments
+This guideline only applies to overloads that are intended
+to provide optional arguments
 
 ```c#
 private string someText;
@@ -416,7 +448,7 @@ public virtual int IndexOf(string phrase, int startIndex, int count)
 }
 ```
 
-### Only use opontional arguments to replace overloads
+### Only use opntional arguments to replace overloads
 
 ```c#
 public virtual int IndexOf(string phrase, int startIndex = 0, int count = -1)
@@ -432,10 +464,10 @@ The only exception where named arguments improve readability
 
 ```c#
 // not valid
-object[] a = b.GetAtributes(type: typeof(MyAttribute));
+object[] a = b.GetAttributes(type: typeof(MyAttribute));
 
 // valid;
-object[] a = b.GetAtributes(typeof(MyAttribute));
+object[] a = b.GetAttributes(typeof(MyAttribute));
 
 // also valid;
 object[] a = b.GetAttributes(typeof(MyAttribute), inherit: false);
@@ -447,7 +479,7 @@ They make code less understandable. Instead, return compound objects or tuples.
 
 ### Do not use parameters as temporary variables
 
-### Prefer `is` patterns over `as` operaons
+### Prefer `is` patterns over `as` operations
 
 ```c#
 // not valid;
@@ -464,7 +496,7 @@ if (user is RemoteUser remoteUser)
 }
 ```
 
-## Documentation and Comments Guidelince
+## Documentation and Comments Guideline
 
 > for more relevant info see [contribution guidance](./documentation.md)
 
@@ -486,9 +518,9 @@ if (user is RemoteUser remoteUser)
 
 ### Use comments for tracking work to be done later
 
-Use `TODO:` and `TODO:FIXME:` formats - codacity easily track them or they can be easily searched,
-they are easy to search in vs code and others IDE,
-[can be highlighted](#Documentation-and-Comments-Guidelince)
+Use `TODO:` and `TODO:FIXME:` formats - codacity easily track them
+or they can be easily searched, they are easy to search in vs code
+and others IDE, [can be highlighted](#Documentation-and-Comments-Guideline)
 
 ### Language
 
@@ -500,13 +532,13 @@ Document all `public`, `protected` and `internal` types and members
 
 ### Avoid inline comments
 
-If you feel the need to explain a block of code using a comment, consider replacing that block with
-a method with a clear name
+If you feel the need to explain a block of code using a comment,
+consider replacing that block with a method with a clear name
 
 ### Use comments to explain complex/non obvious decisions
 
-Help the reader understand why you chose a certain soluon or algorithm and what you are trying to
-achieve.
+Help the reader understand why you chose a certain solution or
+algorithm and what you are trying to achieve.
 
 ## Naming Guidelines
 
@@ -561,7 +593,7 @@ public Max(firstItem, secondItem, customComparer);
 // valid;
 var ftp, html, id, max, min;
 
-// accaptable;
+// acceptable;
 var auth;
 
 // not valid;
@@ -570,7 +602,8 @@ var theWtf, onBtnClick;
 
 ### Do not use type based postfix and prefixes
 
-Do not use type based postfix and prefixes like `Enum`, `Class`, `Strict`, unless it is required
+Do not use type based postfix and prefixes
+like `Enum`, `Class`, `Strict`, unless it is required
 
 ```c#
 // valid;
@@ -636,8 +669,8 @@ using CaliburnMicro.Extensions;
 
 ### Postfix asynchronous methods with `Async` or `TaskAsync`
 
-The general convenon for methods and local funcons that return `Task` or `Task<TResult>` is to
-postfix them with `Async`.
+The general convention for methods and local functions
+that return `Task` or `Task<TResult>` is to postfix them with `Async`.
 
 ## Layout Guidelines
 
@@ -653,7 +686,8 @@ postfix them with `Async`.
 
 ### Keep space between keywords and expressions
 
-Keep space between keywords and expressions but use no spaces after `(` and before `)`
+Keep space between keywords and expressions but use no spaces after
+`(` and before `)`
 
 ```c#
     if (condition == null)
@@ -695,9 +729,9 @@ public class MyClass
 > public void DoNothing() { }
 > ```
 
-### Do not indent object/collection inializers
+### Do not indent object/collection initializers
 
-Inialize each property on a new line
+Initialize each property on a new line
 
 ```c#
 var blackCat = new Cat
@@ -711,7 +745,7 @@ var blackCat = new Cat
 };
 ```
 
-#### Do not indent lanbda statement block
+#### Do not indent lambda statement block
 
 ```c#
 methodThatTakesAnAction.Do(x =>
@@ -720,9 +754,10 @@ methodThatTakesAnAction.Do(x =>
 }
 ```
 
-#### LINQ Statemen
+#### LINQ Statement
 
-Put the entire LINQ statement on one line, or start each keyword at the same indentation
+Put the entire LINQ statement on one line, or start each keyword
+at the same indentation
 
 ```c#
 var inlineQuery = from product in products where product.Price > 10 select product;
@@ -741,13 +776,15 @@ if (!string.IsNullOrEmpty(str) && (str != "new"))
 
 #### Add an empty line
 
-Add an empty line between multi-line statements, between multi-line members, after the closing curly
-braces, between unrelated code blocks, around the `#region` keyword and between the `using`
-statements accourding to the grouping policy in project
+Add an empty line between multi-line statements, between multi-line
+members, after the closing curly braces, between unrelated code blocks,
+around the `#region` keyword and between the `using` statements
+according to the grouping policy in project
 
 ### Namespace grouping policy
 
-Namespaces must be grouped into two, they separates from other with one epty line
+Namespaces must be grouped into two, they separates from other
+with one empty line
 
 ```c#
 using Group1.Smth;
@@ -759,8 +796,9 @@ using Group2.SmthTool;
 
 #### First namespace group
 
-> There used to be seperation between system + microsoft and third party namespaces, but on practice
-> microsoft official packages may include third party packages,
+> There used to be separation between system + microsoft and third
+> party namespaces, but on practice microsoft official packages may
+> include third party packages,
 > [for example `Newtonsoft.Json` is part of `Microsoft.Extensions.Configuration.Json`](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Json/)
 
 System, microsoft and third-party packets. They go in this order:
@@ -804,23 +842,24 @@ using Vulmy.Test.Instances;
 
 ### Use expression bodied members
 
-Favor expression-bodied member syntax over regular member syntax only when the body consists of a
-single statement and fits on a single line.
+Favor expression-bodied member syntax over regular member syntax only
+when the body consists of a single statement and fits on a single line.
 
 ## Performance Guidelines
 
 ### Use `Any()` to determine whether an `IEnumerable<T>` is empty
 
-If you do use `Count()`, you risk iterating over the entier collecon
+If you do use `Count()`, you risk iterating over the entire collection
 
-### Only use async for low-intensive long-running acvies
+### Only use async for low-intensive long-running activities
 
-Use async only for I/O bound operaons
+Use async only for I/O bound operators
 
 ### Beware of mixing up `async`/`await` with `Task.Wait`
 
-`await` does not block the current thread but simply instructs the compiler to generate a
-state-machine. However, `Task.Wait` blocks the thread and may even cause deadlocks.
+`await` does not block the current thread but simply instructs
+the compiler to generate a state-machine. However, `Task.Wait` blocks
+the thread and may even cause deadlocks.
 
 ## Framework Guidelines
 
@@ -828,8 +867,9 @@ state-machine. However, `Task.Wait` blocks the thread and may even cause deadloc
 
 Use `object`, `int`, `string`
 
-> **Exeption** When referring to static members of those types use the full CLS name, e.g.
-> `Int32.Parse()`, `String.Format()` The same applies to members that need to specify the type they
+> **Exeption** When referring to static members of those types use
+> the full CLS name, e.g. `Int32.Parse()`, `String.Format()`.
+> The same applies to members that need to specify the type they
 > return, e.g. `ReadInt32`, `GetUInt16`.
 
 ### Prefer language syntax over explicit calls
@@ -870,8 +910,8 @@ if (tuple1.startTime == tuple2.startTime && tuple1.duration == tuple2.duration)
 
 ### Do not hard-code strings that change based on the deployment
 
-Examples include connection strings, server addresses, etc. Use `./config/main.json` file of
-repository
+Examples include connection strings, server addresses, etc.
+Use `./config/main.json` file of repository
 
 ### Use lambda expressions instead of anonymous methods
 
@@ -891,11 +931,12 @@ var customer = customers.Where(customer => customer.Name == "Tom").FirstOrDefaul
 
 ### Only use `dynamic` when talking to a dynamic object
 
-Using it introduces a serious performance bottleneck because the compiler has to generate some
-complex Reflection code.
+Using it introduces a serious performance bottleneck because
+the compiler has to generate some complex Reflection code.
 
-Use it only for calling methods or members of a dynamically created instance class as an alternave
-to `Type.GetProperty()` and `Type.GetMethod()`
+Use it only for calling methods or members of a dynamically created
+instance class as an alternative to `Type.GetProperty()`
+and `Type.GetMethod()`
 
 ### Favor `async`/`await` over `Task` continuations
 
@@ -915,6 +956,6 @@ public async Task<Data> GetDataAsync()
 }
 ```
 
-## Lisence notice
+## Licence notice
 
 This code conventions are a modification of [dennisdoomen/CSharpGuidelines](https://github.com/dennisdoomen/CSharpGuidelines/releases/tag/5.3.0);

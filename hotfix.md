@@ -6,17 +6,21 @@ hotfixes **recommended** for fixing bugs breaking app normal work or its feature
 
 hotfixes **not recommended** for adding new functionality or improving existing;
 
-  > exception: if new iteration dedicated to breaking api changes i.e. new major version of app, for example `v1.9.20` to `v2.0.0`;
+  > exception: if new iteration dedicated to breaking api changes
+  > i.e. new major version of app, for example `v1.9.20` to `v2.0.0`;
 
-hotfix **must** have opened issue with [label `is::hotfix`](./issue_labels.md#type) assigned to
-current iteration and with
+hotfix **must** have opened issue
+with [label `is::hotfix`](./issue_labels.md#type)
+assigned to current iteration and with
 [`priority::red` or `priority::stop` label](./issue_labels.md#Label-Priority);
 
-hotfix **must** have created branch for mentioned issue with additional postfix `-hotfix` before `-dev` in branch name;
+hotfix **must** have created branch for mentioned issue
+with additional postfix `-hotfix` before `-dev` in branch name;
 
   > example `walpy-issue42QuestionIsNotCorrect-hotfix-dev`
 
-hotfix branch **must** be based on closing iteration commit, i.e. commit with version tag;
+hotfix branch **must** be based on closing iteration commit,
+i.e. commit with version tag;
 
   > it is recommended to use release branch if any present;
 

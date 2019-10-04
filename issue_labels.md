@@ -5,9 +5,9 @@
 
 ## type
 
-> scope `is`; color: `#ccc`;
+**single** label is **required** for **any** issues;
 
-> **single** label is **required** for **any** issues;
+> scope `is`; color: `#ccc`;
 
 | code              | remark                       |
 | :---------------- | :--------------------------- |
@@ -20,9 +20,9 @@
 
 ## priority
 
-> scope `priority`; color: **depend on label**;
+**single** label is **required** for **opened** issues with **iteration #any** milestone;
 
-> **single** label is **required** for **opened** issues with **iteration #any** milestone;
+> scope `priority`; color: **depend on label**;
 
 | code               | color  | remark   |
 | :----------------- | :----: | :------- |
@@ -33,9 +33,9 @@
 
 ## scope
 
-> scope `scope`; color: `#448`; postfix: `::_`;
+**at least one** label is **optional** for **any** issues;
 
-> **at least one** label is **optional** for **any** issues;
+> scope `scope`; color: `#448`; postfix: `::_`;
 
 | code                   | remark                        |
 | :--------------------- | :---------------------------- |
@@ -46,11 +46,12 @@
 
 ## stage
 
-> scope `stage`; color: `#48a`, `#000` for `x` stage;
+**single** label is **required** for **opened** issues with
+**iteration #current** milestone;
 
-> **single** label is **required** for **opened** issues with **iteration #current** milestone;
->
-> except: **x** label is **required** for **any** **closed** isuues;
+except: **x** label is **required** for **any** **closed** issues;
+
+> scope `stage`; color: `#48a`, `#000` for `x` stage;
 
 | code                | remark      |
 | :------------------ | :---------- |
@@ -60,9 +61,10 @@
 
 ## cause of Closure
 
-> scope `stage::x`; color: `#000`;
+**at least one** label *including `stage::x` label* is **required**
+for **closed** issues;
 
-> **at least one** label *including `stage::x` label* is **required** for **closed** issues;
+> scope `stage::x`; color: `#000`;
 
 | code                       | remark                                         |
 | :------------------------- | :--------------------------------------------- |

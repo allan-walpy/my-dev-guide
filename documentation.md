@@ -9,20 +9,21 @@
 >
 > - [defaults of vs code extension](https://github.com/aaron-bond/better-comments#configuration)
 
-Default behavior for any comets is to delete them; but there is some mechanics in workflow, when
-commits can be handy
+Default behavior for any comets is to delete them;
+but there is some mechanics in workflow,
+when commits can be handy
 
 As different files/languages define different comments, some conditions will be used:
 
-- `{line_coment}` would used as inline comments (`//` for `*.cs` files, `#!` for bash and yaml
-  files);
+- `{line_comment}` would used as inline comments
+  (`//` for `*.cs` files, `#!`for bash and yaml files);
 
-- `{block_coment}` would be used for block comments (`/*..*/` for `*.cs`, `#` at the beggining
-  every line in bash and yaml files)
+- `{block_comment}` would be used for block comments
+  (`/*..*/` for `*.cs`, `#` at the begging every line in bash and yaml files)
 
 ## Important notice
 
-> **Starts with** `{line_coment}!` and servs to mark some issues in code
+> **Starts with** `{line_comment}!` and serves to mark some issues in code
 
 ```sharp
 public int Length<T>(List<T> array)
@@ -33,16 +34,17 @@ public int Length<T>(List<T> array)
 }
 ```
 
-> Ussualy, such coments **deltes when they are no more relevant**
+> Usually, such comments **deletes when they are no more relevant**
 
-### Temporary solutios
+### Temporary solutions
 
-> **Starts with** `{line_coment}!tmp;`;
+> **Starts with** `{line_comment}!tmp;`;
 
-One of the ways of using comment is mark temporary code solving some issue, which must be replaced
-in the future
+One of the ways of using comment is mark temporary code solving some
+issue, which must be replaced in the future
 
-> NB! It is recomended to add them at the beggining and ending of modified code
+> NB! It is recommended to add them at the beginning and
+> ending of modified code
 
 ```sharp
 public int Length<T>(List<T> array)
@@ -53,7 +55,9 @@ public int Length<T>(List<T> array)
 }
 ```
 
-> Usually, such comments must not be commeted or pushed. Such commets **deletes always**.
+> Usually, such comments must not be commented or pushed.
+> Such comments **deletes always**.
+>
 > **Forbidden** in release code
 
 #### Issue workaround
@@ -69,8 +73,9 @@ public int Length<T>(List<T> array)
 >
 > - where `{issue}` is issue number on topic;
 
-Sometime some issue can't be fixed at a time (lower priority in iteration or they'll take too many
-time). In such case code can have some so called
+Sometime some issue can't be fixed at a time
+(lower priority in iteration or they'll take too many time).
+In such case code can have some so called
 
 Very often can be added at the end of iteration, then `//!tmp` code can't be remove.
 
@@ -88,7 +93,7 @@ public int Length<T>(List<T> array)
 
 ## Code notice
 
-> **Starts with** `{inline_coment}?`
+> **Starts with** `{inline_comment}?`
 
 Explains non-obvious solutions in code.
 
@@ -107,8 +112,8 @@ public static int Length<T>(this List<T> array)
 
 > **Starts with** `{inline_comment} TODO:`
 
-In development of the Universe there were protoPlanets and protoGalaxies. In our development we
-have protoIssues ` TODO:` and protoBugIssues ` TODO:FIXME`
+In development of the Universe there were proto planets and proto galaxies.
+In our development we have proto-issues `TODO:` and proto-bugs `TODO:FIXME`
 
 ```csharp
 // TODO:FIXME: change method name to `GetLength()` to follow guidelines;
@@ -125,7 +130,7 @@ public static int Length<T>(this List<T> array)
 
 > **Starts with** `{inline_comment}FIXME:`
 
-Avoidusing such comment, and use `{inline_comment}TODO:FIXME` instead
+Avoid using such comment, and use `{inline_comment}TODO:FIXME` instead
 
 > **Always replaced with `TODO:FIXME`**
 
@@ -139,4 +144,5 @@ In C# serves as code documentation which will be compilled in `*.xml`;
 
 In bash or yaml may serve as file or code lines notation;
 
-> **Deletes when no longer relevant** (for example, when method/class became private etc.)
+> **Deletes when no longer relevant**
+> (for example, when method/class became private etc.)
