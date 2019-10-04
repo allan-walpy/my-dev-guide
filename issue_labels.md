@@ -34,7 +34,7 @@ label is **optional**
 
 - `scope::common` - issue with not determined scope or with multiply scopes;
 - `scope::project` - issue affects repository managment;
-- `scope::core` - issue affects `LausySudokuGame.Core` project;
+- `scope::core` - issue affects project code;
 - `scope::test` - issue affects tests; NB! affected only incorrect/buggy tests, correct failed tests not affected;
 
 ## Label Stage

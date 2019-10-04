@@ -41,9 +41,7 @@ to create a pull request
 
   - vs code: open Comman Palette `Ctrl + Shift + p`, find `Git: Publish Branch`
 
-- create pull request on [gitlab website](https://gitlab.com/lausy-sudoku-game/core_dotnetcore/-/branches)
-
-  > **NB!** DO NOT USE GITHUB: Github repository only a mirror of gitlab repository;
+- create pull request on website
 
   - merge as special issue requred only [`a merge` label](./issue_labels.md#Label-Type) and any of
     [scope types labels](./issue_labels.md#Label-Scope)

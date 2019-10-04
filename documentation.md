@@ -53,18 +53,18 @@ public int Length<T>(List<T> array)
 }
 ```
 
-> Usually, such comments must not been commeted or pushed. Such commets **deletes always**.
-> **Forbidden** in result code of iteration (new version compilation)
+> Usually, such comments must not be commeted or pushed. Such commets **deletes always**.
+> **Forbidden** in release code
 
 #### Issue workaround
 
-> **Template follows**
+> **Example**
 >
 > ```markdown
-> {inline_coment}!tmp issue #{issue};
-> {inline_coment}issue https://gitlab.com/lausy-sudoku-game/core_dotnetcore/issues/{issue}
+> //!tmp issue #27;
+> //issue https://gitlab.com/allan_walpy/dev_guide/issues/3
 > [... any comments and lines of code ...]
-> {inline_coment}!tmp issue end;
+> //!tmp issue end;
 > ```
 >
 > - where `{issue}` is issue number on topic;
