@@ -62,9 +62,9 @@
 
   > exceptions:
   >
-  > - last commit of iteration, changing version;
+  > last commit of iteration, changing version;
   >
-  > - newly created repository for one/two its first iterations;
+  > newly created repository for one/two its first iterations;
 
 - for each issue contributor **should but not oblige to** use separate branch;
 
