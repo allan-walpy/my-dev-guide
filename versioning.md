@@ -1,6 +1,6 @@
 # versioning
 
-> all versions must follow [semathic versioning](https://semver.org/);
+> all versions must follow [semantic versioning](https://semver.org/);
 
 versioning is bind to iteration cycle workflow; in the end of
 each cycle version may be increased and new app may be released;

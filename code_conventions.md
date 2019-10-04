@@ -500,21 +500,46 @@ if (user is RemoteUser remoteUser)
 
 > for more relevant info see [contribution guidance](./documentation.md)
 
-|               type name | condition                                 |           serves            |              when deletes              |
-| ----------------------: | :---------------------------------------- | :-------------------------: | :------------------------------------: |
-|          commented code | starts with `//`;                         |  comment alternative code;  |                always;                 |
-|       important comment | starts with `//!`;                        | warning of dangerous code;  |           no longer actual;            |
-|          temporary code | start `//!tmp` - *`//!tmp end;` end*;     |  temporary debugging code;  |                always;                 |
-|          temporary code | start `//!tmp issue` - `//!tmp end;` end; | temporary workaround code;  |     when referenced issue solved;      |
-|        question comment | starts with `//?`;                        |    explanation of code;     | no longer actual; has an issue opened; |
-|          commented code | starts with `///`;                        |  comment alternative code;  |          on private members;           |
-| commented block of code | starts with `/*`, ends with `*/`;         |  comment alternative code;  |                always;                 |
-|           documentation | starts with `///`,contains xml tags;      |   `*.xml` documentation;    |          on private members;           |
-|            TODO comment | starts with `// TODO:`;                   |  quick notice for future;   | no longer actual; has an issue oppend; |
-|       TODO test comment | starts with `// TODO:TEST`;               |   test requiment notice;    |     same as `// TODO:` appliance;      |
-|           FIXME comment | starts with `// TODO:FIXME`;              |  quick notice of bad code;  |     same as `// TODO:` appliance;      |
-|     wrong FIXME comment | starts with `// FIXME:`;                  |  quick notice of bad code;  |  must be changed on `// TODO:FIXME`;   |
-|          other comments | any comment, excluding described above    | coder comments; jokes; etc. |                always;                 |
+|     type name | condition              |      serves      |   when deletes   |
+| ------------: | :--------------------- | :--------------: | :--------------: |
+|     commented | starts `//`            |     comment      |      always      |
+|      out code |                        | alternative code |                  |
+|               |                        |                  |                  |
+|     important | starts `//!`           |    warning of    |    no longer     |
+|       comment |                        |  dangerous code  |      actual      |
+|               |                        |                  |                  |
+|     temporary | starts `//!tmp`        |    temporary     |      always      |
+|          code | ends `//!tmp end;`     |  debugging code  |                  |
+|               |                        |                  |                  |
+|     temporary | starts `//!tmp issue`  |    temporary     | when referenced  |
+|          code | ends `//!tmp end;`     | workaround code  |   issue solved   |
+|               |                        |                  |                  |
+|      question | starts `//?`           |   explanation    | no longer actual |
+|       comment |                        |     of code      |   issue opened   |
+|               |                        |                  |                  |
+|     commented | starts `///`;          |     comment      |    on private    |
+|          code |                        | alternative code |     members      |
+|               |                        |                  |                  |
+|     commented | starts `/*`            |     comment      |      always      |
+|    code block | ends `*/`              | alternative code |                  |
+|               |                        |                  |                  |
+| documentation | starts `///`           |     `*.xml`      |    on private    |
+|               | contains xml tags      |  documentation   |     members      |
+|               |                        |                  |                  |
+|          TODO | starts `//!TODO:`      |   quick notice   | no longer actual |
+|       comment |                        |    for future    |   issue opened   |
+|               |                        |                  |                  |
+|          TODO | starts `//!TODO:TEST`  | test requirement |   same as TODO   |
+|  test comment |                        |      notice      |    appliance     |
+|               |                        |                  |                  |
+|         FIXME | starts `//!TODO:FIXME` |   quick notice   |   same as TODO   |
+|       comment |                        |   of bad code    |    appliance     |
+|               |                        |                  |                  |
+|   wrong FIXME | starts with `//FIXME:` |   quick notice   |    change on     |
+|       comment |                        |   of bad code    | `//!TODO:FIXME`  |
+|               |                        |                  |                  |
+|         other | any other              |  coder comments  |      always      |
+|      comments | comments               |    jokes etc.    |                  |
 
 ### Use comments for tracking work to be done later
 

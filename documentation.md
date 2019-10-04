@@ -113,7 +113,7 @@ public static int Length<T>(this List<T> array)
 > **Starts with** `{inline_comment} TODO:`
 
 In development of the Universe there were proto planets and proto galaxies.
-In our development we have proto-issues `TODO:` and proto-bugs `TODO:FIXME`
+In our development we have proto issues `TODO:` and proto bugs `TODO:FIXME`
 
 ```csharp
 // TODO:FIXME: change method name to `GetLength()` to follow guidelines;
@@ -140,7 +140,7 @@ Avoid using such comment, and use `{inline_comment}TODO:FIXME` instead
 >
 > In bash or yaml starts with `##` or `#`;
 
-In C# serves as code documentation which will be compilled in `*.xml`;
+In C# serves as code documentation which will be compiled in `*.xml`;
 
 In bash or yaml may serve as file or code lines notation;
 

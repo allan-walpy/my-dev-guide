@@ -58,7 +58,7 @@
 > **suggested** iteration duration is about 3 weeks (+/- a week),
 > depending on size of team and importance of project(s);
 
-- **no direct commits** to `master` are permited - only pull request are acceptable;
+- **no direct commits** to `master` are permitted - only pull request are acceptable;
 
   > exceptions:
   >
