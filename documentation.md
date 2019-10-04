@@ -13,12 +13,12 @@ Default behavior for any comets is to delete them;
 but there is some mechanics in workflow,
 when commits can be handy
 
-As different files/languages define different comments, some conditions will be used:
+As different files/languages define different comments, some conditions will be used
 
-- the `{line_comment}` would used as inline comments
+The `{line_comment}` would used as inline comments
   `//` for `*.cs` files, `#!`for bash and yaml files;
 
-- the `{block_comment}` would be used for block comments
+The `{block_comment}` would be used for block comments
   `/*..*/` for `*.cs`, `#` at the begging every line in bash and yaml files;
 
 ## Important notice
