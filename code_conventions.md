@@ -132,7 +132,7 @@ property `DataSource` and then `DataMember` or vice-versa.
 
 ### Do not expose stateful objects through static members
 
-> A stateful object is an object that contains many properes
+> A stateful object is an object that contains many properties
 > and lots of behavior behind it.
 
 If you expose such an object through a static property or method
@@ -448,7 +448,7 @@ public virtual int IndexOf(string phrase, int startIndex, int count)
 }
 ```
 
-### Only use opntional arguments to replace overloads
+### Only use optional arguments to replace overloads
 
 ```c#
 public virtual int IndexOf(string phrase, int startIndex = 0, int count = -1)
@@ -845,7 +845,7 @@ using Nlog;
 
 #### Second namespace group
 
-Inside solution depencies in alphabet order
+Inside solution dependencies in alphabet order
 
 ```c#
 using Vulmy.Client;
@@ -892,7 +892,7 @@ the thread and may even cause deadlocks.
 
 Use `object`, `int`, `string`
 
-> **Exeption** When referring to static members of those types use
+> **Exception** When referring to static members of those types use
 > the full CLS name, e.g. `Int32.Parse()`, `String.Format()`.
 > The same applies to members that need to specify the type they
 > return, e.g. `ReadInt32`, `GetUInt16`.
