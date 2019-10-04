@@ -1,54 +1,73 @@
-# Branches and Pull Requests
+# branches and pull requests
 
-> see also:
->
-> - [managing branches with git commands](https://github.com/Kunena/Kunena-Forum/wiki/Create-a-new-branch-with-git-and-manage-branches)
-> - [managing branches in visual studio](https://docs.microsoft.com/ru-ru/azure/devops/repos/git/branches?view=vsts&tabs=visual-studio)
+see also [managing branches with git commands](https://github.com/Kunena/Kunena-Forum/wiki/Create-a-new-branch-with-git-and-manage-branches)
 
-It is forbidden for anyone to directly commit to `master` branch, so if you want commit, you need
-to create a pull request
+in avoiding direct commits to `master` branches and pull requests take place; this document covers `git` and `vs code`;
 
-- create localy branch `{username}-issue{issueNumber}-dev`
+- `git shell` can be accessed with bash;
 
-  > **NB!** if there isn't any issue conserning you branch or you cover several issues:
-  > you may put any words in place of `issue{issueNumber}` reflecting type of your branch
+- `vs code pallette` can be accessed with `ctrl + shift + p` combination;
 
-  - git shell
+## branches management
+
+- create local branch;
+
+  > `Git: Create Branch` in vs code pallette;
+
+  ```shell
+  git checkout -b {branchName}
+  ```
+
+- push to server/publish branch;
+
+  > `Git: Publish Branch` in pallette;
+
+  ```shell
+  git push origin {branchName}
+  ```
+
+- change current branch;
+
+  > `ctrl + shift + g` in vs code;
+
+  ```shell
+  git checkout {branchName}
+  ```
+
+- commit to current branch
+
+  > `ctrl + shift + g` in vs code;
+
+  ```shell
+  git commit -S -m "#{issueNumber} {commitMessage}"
+  ```
+
+- delete local branch
+
+    > `Git: Delete Branch...` in vs code pallette;
 
     ```shell
-    git checkout -b {username}-issue{issueNumber}-dev
+    git branch -d {branchName}
     ```
 
-  - vs code: open Comman Palette `Ctrl + Shift + p`, find `Git: Create Branch`
+- delete remote deleted from server branches;
 
-- commit to that branch
+  > `ctrl + shift + ~` in vs code; use `git` commands;
 
-  - git shell
+  ```shell
+  git remote prune origin
+  ```
 
-    ```shell
-    git commit -m "#{issueNumber} doing staff"
-    ```
+  git branch -a
 
-  - vs code: go to Source Control `Ctrl + Shift + G`
+  > see also: [clean up branches and remotes after merge and delete in github](http://www.fizerkhan.com/blog/posts/Clean-up-your-local-branches-after-merge-and-delete-in-GitHub.html)
 
-- publish branch (at any point of development)
+## pull requests management
 
-  - git shell
+- create pull request on website;
 
-    ```shell
-    git push origin {username}-issue{issueNumber}-dev
-    ```
-
-  - vs code: open Comman Palette `Ctrl + Shift + p`, find `Git: Publish Branch`
-
-- create pull request on website
-
-  - merge as special issue requred only [`a merge` label](./issue_labels.md#Label-Type) and any of
-    [scope types labels](./issue_labels.md#Label-Scope)
+  > pull requests require only [`is::merge` label](./issue_labels.md#type)
 
 - wait until pull request is closed
 
-  Pull request can't be merged if failing one or more pull request checks and requiments.
-  Although, commitier is not oblige to fix that - it can be or reviewer or assignies
-
-  > Please, **do** delete branch after merge closure on local and remote server
+  > **suggesting** to delete branch after merging and closing pull request on both server and local machine;

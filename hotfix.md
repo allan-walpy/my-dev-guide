@@ -1,25 +1,35 @@
-# Hotfixes
+# hotfixes
 
-Sometimes versions has flows/bugs, which make app almost or completely broken. So, instead of
-waiting when iteration ends and fixes the issue, `hotfix` can be applied
+hotfixes are applied to already published app versions;
 
-- **Must** be open issue with [label `is::hotfix`](./issue_labels.md#Label-Type), assigned to
+hotfixes **recommended** for fixing bugs breaking app normal work or its features;
+
+hotfixes **not recommended** for adding new functionality or improving existing;
+
+  > exception: if new iteration dedicated to breaking api changes i.e. new major version of app, for example `v1.9.20` to `v2.0.0`;
+
+hotfix **must** have opened issue with [label `is::hotfix`](./issue_labels.md#type) assigned to
 current iteration and with
-[`priority::red` or `priority::critical` label](./issue_labels.md#Label-Priority);
+[`priority::red` or `priority::stop` label](./issue_labels.md#Label-Priority);
 
-- **Must** be created branch for this issue with name
-`{username}-issue{HotfixIsssueNumber}-hotfix-dev`
+hotfix **must** have created branch for mentioned issue with additional postfix `-hotfix` before `-dev` in branch name;
 
-  > **NB!** instead of normal behavior - branching from `master` (original branch), branch for
-  > hotfix based on release version branch `release` - which retain last release version of app
+  > example `walpy-issue42QuestionIsNotCorrect-hotfix-dev`
 
-- When hotfix done, you **must** create pull request directly to release version `release` branch
+hotfix branch **must** be based on closing iteration commit, i.e. commit with version tag;
 
-  > **NB!** As you intent to commit in release version only branch, with issue fix, you pull
-  > request must contain change in version patch number
+  > it is recommended to use release branch if any present;
 
-- Hotfix pull request **must** be treated with more attention and accuracity
+hotfix branch **must not** be merged with master branch;
 
-  > It is **advised** to have more than one reviewers and assignees
+  > if there is no branches for releases, **suggested** to create brunch `hotfix-v{appVersionWithHotfix}`;
 
-- There are no limits about how many hotfixes there could be
+hotfix changes **must** include app version changes;
+
+  > exception if branch for release versions exists;
+
+hotfix pull requests **must** be treated with more attention and accuracy
+
+  > it is **advised** to have more than one reviewers and assignees
+
+there are no limits on number of hotfixes per version;

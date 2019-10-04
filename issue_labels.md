@@ -1,13 +1,13 @@
 # issue and pull requests labels
 
-> issues code presented here optimimised for gitlab and their
+> issues code presented here optimized for gitlab and their
 > [scope labels](https://gitlab.com/help/user/project/labels.md#scoped-labels);
 
-## Type
+## type
 
 > scope `is`; color: `#ccc`;
 
-> **single** label is **requeired** for **any** issues;
+> **single** label is **required** for **any** issues;
 
 | code              | remark                       |
 | :---------------- | :--------------------------- |
@@ -18,7 +18,7 @@
 | `is::merge`       | merge/pull request           |
 | `is::question`    | question/discussion/proposal |
 
-## Priority
+## priority
 
 > scope `priority`; color: **depend on label**;
 
@@ -29,9 +29,9 @@
 | `priority::green`  | `#4a4` | low      |
 | `priority::orange` | `#f80` | medium   |
 | `priority::red`    | `#f44` | high     |
-| `priority::red`    | `#000` | blocking |
+| `priority::stop`    | `#000` | blocking |
 
-## Scope
+## scope
 
 > scope `scope`; color: `#448`; postfix: `::_`;
 
@@ -44,7 +44,7 @@
 | `scope::repo::_`       | affects repository management |
 | `scope::test::_`       | affects tests                 |
 
-## Stage
+## stage
 
 > scope `stage`; color: `#48a`, `#000` for `x` stage;
 
@@ -58,7 +58,7 @@
 | `stage::processing` | in progress |
 | `stage::x`          | closed      |
 
-## Cause of Closure
+## cause of Closure
 
 > scope `stage::x`; color: `#000`;
 

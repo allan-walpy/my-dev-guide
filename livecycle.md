@@ -1,142 +1,117 @@
-# Iteration lifecycles
+# iteration lifecycles
 
-## Iteration initiation
+| code                 | required | comment            |
+| :------------------- | :------: | :----------------- |
+| `iteration #[n-1]`   |   yes    | previous if exists |
+| `iteration #[n]`     |   yes    | current            |
+| `iteration #[n+1]`   |    no    | next               |
+| `iteration next`     |    no    | `[>n+1]`           |
+| `iteration x [smth]` |    no    | thematic           |
 
-> Iteration **N** - current iteration;
->
-> Iteration **N-1** - previous iteration;
->
-> Iteration **N+1** - next iteration;
->
-> Iteration **Next** - means milestone for issues that hasn't got into milestones, but planned for
-> the future;
+- `iteration next` is for issues not assigned to `n`, `n+1` etc. existing iterations;
 
-- Iteration `N-1` **must** be finished;
+- `iteration x [smth]` is one and more iteration milestones with some thematic
 
-- New milestone for iteration `N+1` **must** be created;
-
-- Issues **must** be rearrange between iterations `N`, `N+1` and `Next`;
-
-- Issue iterations `N` and `N+1` **must** be prioritized inside/relatively their iterations;
-
-  > Priority labels valid only for issues and pull request that is open and belong to `N` or `N+1`
-  > iteration
-
-- Milestone durations for `N` and `N+1` iterations **could** be changed at this point;
-
-## Iteration development
-
-> **NB!** Recommended iteration duration is about 3 weeks (+/- week)
-
-- **No direct commits** to `master` are permited - only pull request are acceptable;
-
-  > Exception **could** be last commit of iteration, changing version
-
-- For each issue contributor **should but not oblige to** use separate branch;
-
-- Every development branch **nust** follow perticilar pattern `{username}-{smth}-dev`:
-
-  - `username` - username (only letters and digits allowed) of whom this branch is
-
-    > if branch uses several people, the one incharge username uses or key word `group`
-
-  - `smth` - topic of your branch; if branch dedicated to issue - use `issue#`, for example
-    `issue42`
-
-    > if you prefer only one persistant branch for youself use key word `all`;
-
-### Fetching main branch
-
-> see also
-> [pulling from master to dev branch](https://stackoverflow.com/questions/20101994/git-pull-from-master-into-the-development-branch)
-
-- make sure you are on your branch
-
-  > git shell
+  > examples:
   >
-  > ```shell
-  > git checkout {your_branch_name}
-  > ```
-
-- load last `master` commits
-
-  > git shell
+  > `iteration x v1.0.0` or `iteration x release` - issues relating to first stable release version;
   >
-  > ```shell
-  > git fetch origin
-  > ```
+  > `iteration x hosted` - issues relating to deploying app and issues relating to deployed issues;
 
-- merge you branch with `master`
+## iteration initiation
 
-  > git shell
+- iteration `n-1` if exists **must** be finished and closed;
+
+  > not finished issues/pull requests not can be transferred to next milestone - code conserving these issues must not be present in result iteration code;
+
+- new milestone for iteration `n` **must** be present;
+
+  > new milestone creation depends on how many iteration ahead are planned already;
   >
-  > ```shell
-  >  git merge origin/master
-  >  ```
+  > example 1: if you have [2, 3, 4] opened, on closing `iteration 2` the `iteration 5` must be created;
+  >
+  > example2: if you have `iteration 3` only, on closing `iteration 3`, the `iteration 4` must be created;
 
-## Iteration finalization
+- issues **must** be assigned to created iteration, presumably reassigned from `iteration next` and `iteration x [smth]` if any;
 
-> **NB!** You may face a problem, then local branches won't deletes with remotes one. Use this:
->
-> ```git
-> # list of bbranches and remotes;
-> git branch -a
->
-> # see non actual remotes;
-> git remote prune origin --dry-run
->
-> # delete all non actual remotes;
-> git remote prune origin
-> ```
->
-> also: [clean up branches and remotes after merge and delete in github](http://www.fizerkhan.com/blog/posts/Clean-up-your-local-branches-after-merge-and-delete-in-GitHub.html)
+- inside `iterations #[x]` milestones, issues **must** be prioritized relatively other issues in same milestones they are;
 
-To initiate finalization *(sic!)*:
+  > [priority labels](./issue_labels.md#priority) assigned only for issues and pull request inside `iteration #[x]` milestones;
 
-- all issues and pull request **must** be closed
+- milestones durations for `iteration #[x]` **could** be changed at this point;
 
-- all test **must** be passed (except on code style)
+  > other milestones' duration can be changed at any time;
+  >
+  > except: `iteration next` must not have end date, and start date must be from last existing `iteration #[x]` end date;
 
-  > if you think test are broken - you **must** open issue on current milestone
-  > to fix them or reject them from project *(sic!)*; after all no new version
-  > can be provided if tests failing;
+## iteration development
 
-- change log **must** be written;
+> **suggested** iteration duration is about 3 weeks (+/- a week), depending on size of team and importance of project(s);
 
-  > you **can** look up closed commits and pull request branches in finalizing milestone
+- **no direct commits** to `master` are permited - only pull request are acceptable;
 
-- All `{username}-{smth}-dev` **must** be deleted;
+  > exceptions:
+  >
+  > - last commit of iteration, changing version;
+  >
+  > - newly created repository for one/two its first iterations;
 
-  > Exception for this rule **could** be `{username}-all-dev` branches;
+- for each issue contributor **should but not oblige to** use separate branch;
 
-- New app version **must** be provided;
+  - branch name **must follow pattern** `{username}-{smth}-dev`
 
-  - on assining new version **must** use [semantic versioning](https://semver.org)
+    > **not recommended**: in some exceptions one contributor may have their personal branch for contributing `{username}-all-dev`
 
-    Then deciding about pre-release suffix, **try** to follow this:
+    - `username` - branch contributor username (only `[A-z0-9]` allowed)
+      > if several people uses branch, use prefix `group-main-`;
+      >
+      > also **suggesting** to add branches for each contributor `group-{username}` in such cases;
 
-    - **zero** - app does nothing;
+    - `smth` - topic of your branch; if branch dedicated to issue - use `issue{issueNumber}{issueTopic}`;
 
-    - **alpha** - app has some coded and may be working features;
+      > example: `issue42AnswerToQuestionOfUniverse`;
 
-    - **beta** - app passed integrational test, comfirming app follow its api specification;
+> see also: [branches and pull requests](./branches.md)
 
-      > **NB!** integrational tests **must** cover all api specification, or you stick with alpha;
+## iteration finalization
 
-    - **rc** `[short for release candidate]`- local and deployed (if any) versions of the app past
-      100% covered integrational api tests
+requirements for starting iteration finalization;
 
-    - **stable** `[or no suffix]` - same as `rc`, but must be deployed and used for a someperiod
-      of time or/and tested with even more commits;
+- all issues and pull requests **must** be closed or moved to next iteration;
 
-  - change log **can** give a clue about how huge changes were and that parts of projects they are
+- all test **must** be passed;
 
-- Release of new version **must**:
+  - if no test written/present - iteration **can be finalized**, but  **no steps** on publishing and making new version **must be** done;
 
-  - include changelog;
-  - provided published self-contained versions of app for every platform that app supports (exeptions for `zero` versions);
-  - have deployed version of app on a real server (if any required);
+  - if tests are broken - in such case two approaches;
 
-## Hotfixes
+    - **must** open issue on test in current iteration, and not closing both, until tests are fixed;
+    - **degrade** tests to pass them all with degradation of project: pre-release note must be added or existing downgraded; after that iteration **can be closed only with pre-release version and mentioning of downgrading in changelog**;
 
-Information about hotfixes [here](./hotfix.md);
+- changelog for iteration **must** be written;
+
+  > you **can** look up closed issues and pull request in finalizing iteration;
+
+- all `{username}-{smth}-dev` branches **must** be deleted;
+
+  > Exception for this rule **could be** `{username}-all-dev` branches and **must be** branches for pull request and issues that has been moved to next iteration;
+
+- new app version **must** be provided; [see versioning](./versioning.md);
+
+  > exception: repositories with no any tests if project implies any present;
+
+  - release of new version **must** contain;
+
+    - changelog;
+
+    - build/compiled files for every platform app supports
+
+      > exceptions: `zero` versions;
+
+    - have deployed version of app on a real server (if any required);
+
+      > exceptions: `zero` and `alpha` versions;
+
+## hotfixes
+
+[see hotfixes](./hotfix.md);
