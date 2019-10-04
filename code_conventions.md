@@ -283,10 +283,10 @@ Don't include generic type parameters in the file name
 
 > **Exceptions**
 >
-> - Nested types should be part of the same file
+> Nested types should be part of the same file
 >
-> - Types that only differ by their number of generic type parameters
->   should be part of the same file
+> Types that only differ by their number of generic type parameters should be part
+> of the same file
 
 ### Name partial class file according it's logical function
 
