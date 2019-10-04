@@ -45,11 +45,11 @@ this document covers `git` and `vs code`;
 
 - delete local branch
 
-    > `Git: Delete Branch...` in vs code pallette;
+  > `Git: Delete Branch...` in vs code pallette;
 
-    ```shell
-    git branch -d {branchName}
-    ```
+  ```shell
+  git branch -d {branchName}
+  ```
 
 - delete remote deleted from server branches;
 
