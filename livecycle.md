@@ -31,8 +31,8 @@
 
   > new milestone creation depends on how many iteration ahead are planned already;
   >
-  > example 1: if you have [2, 3, 4] opened, on closing `iteration 2`
-  > the `iteration 5` must be created;
+  > example 1: if you have `2, 3, 4` iterations opened,
+  > on closing `iteration 2` the `iteration 5` must be created;
   >
   > example2: if you have `iteration 3` only, on closing `iteration 3`
   >the `iteration 4` must be created;
