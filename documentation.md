@@ -16,10 +16,10 @@ when commits can be handy
 As different files/languages define different comments, some conditions will be used:
 
 - `{line_comment}` would used as inline comments
-  (`//` for `*.cs` files, `#!`for bash and yaml files);
+  `//` for `*.cs` files, `#!`for bash and yaml files;
 
 - `{block_comment}` would be used for block comments
-  (`/*..*/` for `*.cs`, `#` at the begging every line in bash and yaml files)
+  `/*..*/` for `*.cs`, `#` at the begging every line in bash and yaml files;
 
 ## Important notice
 
