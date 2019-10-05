@@ -305,9 +305,9 @@ button.Click += (_, __) => HandleClick();
 
 `AV1745 Group extension methods in a class suffixed with Extensions`
 
-**suggestion**: if the name of an extension method conflicts with another member or
-extension method, you must prefix the call with the class name; having them in a
-dedicated class with the `Extensions` suffix improves readability;
+**suggestion**: if the name of an extension method conflicts with another member
+or extension method, you must prefix the call with the class name; having them in
+a dedicated class with the `Extensions` suffix improves readability;
 
 ## postfix asynchronous methods with `Async` or `TaskAsync`
 
