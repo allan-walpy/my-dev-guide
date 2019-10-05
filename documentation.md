@@ -194,7 +194,6 @@ public static int Length<T>(this List<T> array)
 comments **must** be **deleted**;
 
 ```csharp
-
 // length? not count???
 public static int Length<T>(this List<T> array)
     // wtf?, meaningless method?
