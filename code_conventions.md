@@ -1,12 +1,12 @@
-# Code Conventions
+# code conventions
 
-## Basic Principles
+## basic principles
 
-### Least Surprise
+### least surprise
 
 Choose a solution that everyone can understand, and that keeps them on right track
 
-### Keep It Simple Stupid
+### keep it simple stupid
 
 The simplest solution is more than sufficient
 
@@ -499,48 +499,7 @@ if (user is RemoteUser remoteUser)
 
 ## Documentation and Comments Guideline
 
-> for more relevant info see [contribution guidance](./documentation.md)
-
-|     type name | condition              |      serves      |   when deletes   |
-| ------------: | :--------------------- | :--------------: | :--------------: |
-|     commented | starts `//`            |     comment      |      always      |
-|      out code |                        | alternative code |                  |
-|               |                        |                  |                  |
-|     important | starts `//!`           |    warning of    |    no longer     |
-|       comment |                        |  dangerous code  |      actual      |
-|               |                        |                  |                  |
-|     temporary | starts `//!tmp`        |    temporary     |      always      |
-|          code | ends `//!tmp end;`     |  debugging code  |                  |
-|               |                        |                  |                  |
-|     temporary | starts `//!tmp issue`  |    temporary     | when referenced  |
-|          code | ends `//!tmp end;`     | workaround code  |   issue solved   |
-|               |                        |                  |                  |
-|      question | starts `//?`           |   explanation    | no longer actual |
-|       comment |                        |     of code      |   issue opened   |
-|               |                        |                  |                  |
-|     commented | starts `///`;          |     comment      |    on private    |
-|          code |                        | alternative code |     members      |
-|               |                        |                  |                  |
-|     commented | starts `/*`            |     comment      |      always      |
-|    code block | ends `*/`              | alternative code |                  |
-|               |                        |                  |                  |
-| documentation | starts `///`           |     `*.xml`      |    on private    |
-|               | contains xml tags      |  documentation   |     members      |
-|               |                        |                  |                  |
-|          TODO | starts `//!TODO:`      |   quick notice   | no longer actual |
-|       comment |                        |    for future    |   issue opened   |
-|               |                        |                  |                  |
-|          TODO | starts `//!TODO:TEST`  | test requirement |   same as TODO   |
-|  test comment |                        |      notice      |    appliance     |
-|               |                        |                  |                  |
-|         FIXME | starts `//!TODO:FIXME` |   quick notice   |   same as TODO   |
-|       comment |                        |   of bad code    |    appliance     |
-|               |                        |                  |                  |
-|   wrong FIXME | starts with `//FIXME:` |   quick notice   |    change on     |
-|       comment |                        |   of bad code    | `//!TODO:FIXME`  |
-|               |                        |                  |                  |
-|         other | any other              |  coder comments  |      always      |
-|      comments | comments               |    jokes etc.    |                  |
+see [commenting and documentation rules](./documentation.md)
 
 ### Use comments for tracking work to be done later
 
