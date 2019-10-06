@@ -2203,13 +2203,13 @@ bottom, as if reading a book, to prevent readers from having to browse up and do
 through the code file;
 
 1. private fields and constants; *in a region*;
-2. public constants;
-3. public static read-only fields;
-4. factory methods;
-5. constructors and the finalizer;
-6. events;
-7. public properties;
-8. other methods and private properties in calling order;
+1. public constants
+1. public static read-only fields;
+1. factory methods;
+1. constructors and the finalizer;
+1. events;
+1. public properties;
+1. other methods and private properties in calling order;
 
 > declare local functions at the bottom of their containing method bodies after
 > all executable code;
