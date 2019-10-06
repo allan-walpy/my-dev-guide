@@ -1,6 +1,6 @@
 # miscellaneous design
 
-## Use generic constraints if applicable
+## use generic constraints if applicable
 
 `AV1240 Use generic constraints if applicable`
 

@@ -2,25 +2,25 @@
 
 ## least surprise principle
 
-> also Astonishment;
+> also `Astonishment`;
 
 choose a solution everyone can understand and keeps on right track;
 
 ## keep it simple stupid
 
-> also KISS;
+> also `KISS`;
 
 the simplest solution is more than sufficient;
 
 ## you ain't gonna need it
 
-> also YAGNI;
+> also `YAGNI`;
 
 create a solution for the problem at hand, not for the future one;
 
 ## don't repeat yourself
 
-> also DRY;
+> also `DRY`;
 
 avoid duplication within a component, a source control repository or a bounded
 context

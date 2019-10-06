@@ -59,7 +59,7 @@ except: **x** label is **required** for **any** **closed** issues;
 | `stage::processing` | in progress |
 | `stage::x`          | closed      |
 
-## cause of Closure
+## cause of closure
 
 **at least one** label *including `stage::x` label* is **required**
 for **closed** issues;

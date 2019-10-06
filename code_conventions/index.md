@@ -5,7 +5,7 @@
 
 ## basic principles
 
-[see basic principles](./basic.md);
+[see basic principles](./basic_principles.md);
 
 ## class design
 
@@ -50,10 +50,6 @@
 ## layout
 
 [see layout](./layout.md);
-
-## commenting
-
-[see commenting](./commenting.md);
 
 ## link & articles
 

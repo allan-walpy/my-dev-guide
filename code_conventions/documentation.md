@@ -54,3 +54,7 @@ into a problem with the obvious solution;
 **recommendation**: use comments for tracking work to be done later with caution;
 try to fix issues as soon as possible, or delete them, opening new issue on
 git repository; avoid such comments on `master` brunch and in release app version;
+
+## use comment patterns
+
+**suggestion**: use comment patterns; [see commenting](./commenting.md);
