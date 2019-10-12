@@ -168,9 +168,7 @@ to `conventional commits`;
 > [optional footer]
 > ```
 
-| commit's | value         |         issufor issue is::merge see affected issues in merge/pull request;
-
-changes for issues is::question cannot be commited, until issue changes type;e          | comment                   |
+| commit's | value         |         issue          | comment                   |
 | -------: | :------------ | :--------------------: | :------------------------ |
 |   `type` | `fix`         |       `is::bug`        | bugfixes;                 |
 |   `type` | `hotfix`      |      `is::hotfix`      | [hotfixes](#hotfixes);    |
