@@ -61,8 +61,6 @@ this document covers `git` and `vs code`;
   git remote prune origin
   ```
 
-  git branch -a
-
   > see also: [clean up branches and remotes after merge and delete in github](http://www.fizerkhan.com/blog/posts/Clean-up-your-local-branches-after-merge-and-delete-in-GitHub.html)
 
 ### pull requests management
@@ -107,7 +105,7 @@ this document covers `git` and `vs code`;
 | `priority::green`  | `#4a4` | low      |
 | `priority::orange` | `#f80` | medium   |
 | `priority::red`    | `#f44` | high     |
-| `priority::stop`    | `#000` | blocking |
+| `priority::stop`   | `#000` | blocking |
 
 ### scope issue label
 
@@ -151,6 +149,48 @@ for **closed** issues;
 | `stage::x::invalid::clone` | duplicate                                      |
 | `stage::x::rejected`       | declined/won't fix/won't merge/won't implement |
 
+## commit conventions
+
+commits to master branches `master`, `release` and other if any, **must** comply
+with [conventional commits](https://www.conventionalcommits.org/en/);
+any contradictions, elaborations are described in this section;
+
+commits of `dev` branches **should** start with `#{issueNumber}` and not oblige
+to `conventional commits`;
+
+> conventional commit structure;
+>
+> ```text
+> <type>[optional scope]: <description>
+>
+> [optional body]
+>
+> [optional footer]
+> ```
+
+| commit's | value         |         issufor issue is::merge see affected issues in merge/pull request;
+
+changes for issues is::question cannot be commited, until issue changes type;e          | comment                   |
+| -------: | :------------ | :--------------------: | :------------------------ |
+|   `type` | `fix`         |       `is::bug`        | bugfixes;                 |
+|   `type` | `hotfix`      |      `is::hotfix`      | [hotfixes](#hotfixes);    |
+|   `type` | `feat`        |     `is::feature`      | features;                 |
+|   `type` | `improvement` |   `is::improvement`    | any code improvements;    |
+|   `type` | `style`       |   `is::improvement`    | code style changes/fixes; |
+|   `type` | `refactor`    |   `is::improvement`    | code refactors;           |
+|   `type` | `chore`       |   `is::improvement`    | random changes;           |
+|   `type` | `docs`        |    `scope::docs::_`    | in documentation;         |
+|  `scope` | `code`        |    `scope::code::_`    | in project code;          |
+|  `scope` | none          |    `scope::code::_`    | alias to `code`;          |
+|  `scope` | `arch`        | `scope::code::arch::_` | in code architecture;     |
+|  `scope` | `repo`        |    `scope::repo::_`    | in repository;            |
+|  `scope` | `test`        |    `scope::test::_`    | in test code;             |
+|  `scope` | other         |     `scope::*::_`      | in other defined scopes;  |
+
+> for issue `is::merge` see affected issues in merge/pull request;
+>
+> changes for issues `is::question` cannot be commited, until issue changes type;
+
 ## iteration lifecycles
 
 | code                 | required | comment            |
@@ -171,13 +211,13 @@ for **closed** issues;
   > to first stable release version;
   >
   > `iteration x hosted` - issues relating to deploying app and issues
-  >relating to deployed issues;
+  > relating to deployed issues;
 
 ### iteration initiation
 
 - iteration `n-1` if exists **must** be finished and closed;
 
-  > not finished issues/pull requests not can be transferred to next milestone -
+  > not finished issues/pull requests not can be transferred to next milestone;
   > code conserving these issues must not be present in result iteration code;
 
 - new milestone for iteration `n` **must** be present;
@@ -188,7 +228,7 @@ for **closed** issues;
   > on closing `iteration 2` the `iteration 5` must be created;
   >
   > example2: if you have `iteration 3` only, on closing `iteration 3`
-  >the `iteration 4` must be created;
+  > the `iteration 4` must be created;
 
 - issues **must** be assigned to created iteration,
   presumably reassigned from `iteration next` and `iteration x [smth]` if any;
@@ -227,6 +267,7 @@ for **closed** issues;
     > their personal branch for contributing `{username}-all-dev`
 
     - `username` - branch contributor username (only `[A-z0-9]` allowed)
+
       > if several people uses branch, use prefix `group-main-`;
       >
       > also **suggesting** to add branches for each contributor
