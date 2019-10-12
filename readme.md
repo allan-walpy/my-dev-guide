@@ -1,8 +1,10 @@
 # my own development guidelines
 
-![version 0.5.6-beta](https://img.shields.io/badge/version-0.5.6--beta-informational?style=for-the-badge)
+![version 0.6.0-beta](https://img.shields.io/badge/version-0.6.0--beta-informational?style=for-the-badge)
 
 development guidelines i am being trying to follow;
+
+- [vocabulary](./vocabulary.md);
 
 - [code of conduct](./code_of_conduct.md);
 

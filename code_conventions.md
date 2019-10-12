@@ -1,56 +1,83 @@
 # code conventions
 
-> this code conventions are a modification of [dennisdoomen/CSharpGuidelines](https://github.com/dennisdoomen/CSharpGuidelines/releases/tag/5.4.0)
-> with some addition by [allan_walpy](https://github.com/allan-walpy);
+> this code conventions are a modification of
+> [CSharpGuidelines](https://github.com/dennisdoomen/CSharpGuidelines/)
+> `v5.4.0` with some addition & mpodfication by
+> [allan_walpy](https://github.com/allan-walpy)
+> and other(s) if any
+> [see contributors](https://gitlab.com/allan_walpy/dev_guide/-/graphs/master);
+
+see [vocabulary for oblige verbs](./vocabulary.md#oblige-verbs) for key words
+before rule descriptions;
 
 ## basic principles
 
 ### least surprise principle
 
-> also Astonishment;
+`AL0101 Astonishment`
 
-choose a solution everyone can understand and keeps on right track;
+**must**: choose a solution everyone can understand and keeps on right track;
 
 ### keep it simple stupid
 
-> also KISS;
+`AL0102 KISS`
 
-the simplest solution is more than sufficient;
+**must**: the simplest solution is more than sufficient;
 
 ### you ain't gonna need it
 
-> also YAGNI;
+`AL0103 YAGNI`
 
-create a solution for the problem at hand, not for the future one;
+**must**: create a solution for the problem at hand, not for the future one;
 
 ### don't repeat yourself
 
-> also DRY;
+`AL0104 DRY`
 
-avoid duplication within a component, a source control repository or a bounded
-context
+**must**: avoid duplication within a component, a source control repository or
+a bounded context
 
-### rule of three
+### the rule of three
 
-> see also [abstraction: the rule of three](https://lostechies.com/derickbailey/2012/10/31/abstraction-the-rule-of-three/);
+`AL0105 The rule of three`
 
-*if you need something* **once**, **build** it;
+**must**: [abstraction and the rule of three](https://lostechies.com/derickbailey/2012/10/31/abstraction-the-rule-of-three/);
 
-*if you need something* **twice**, **pay attention** to it;
+*if you need something* **once** - **build** it;
 
-*if you need something* **a third time**, **abstract** it;
+*if you need something* **twice** - **pay attention** to it;
+
+*if you need something* **a third time** - **abstract** it;
 
 ### principles of object oriented programming
 
-> see also [object-oriented programming fundamental principles](https://github.com/TelerikAcademy/Object-Oriented-Programming/tree/master/Topics/04.%20OOP-Principles-Part-1);
+`AL0200 Principles of Object Oriented Programming`
 
-**encapsulation**: bundling data with the methods operating on that data;
+**must**: [object-oriented programming fundamental principles](https://github.com/TelerikAcademy/Object-Oriented-Programming/tree/master/Topics/04.%20OOP-Principles-Part-1);
 
-**abstraction**: keep common features/attributes in various concrete objects;
+### encapsulation of object oriented programming
 
-**inheritance**: basing class upon another, retaining similar implementation;
+`AL0201 Encapsulation of Object Oriented Programming`
 
-**polymorphism**: providing a single interface to different types entities;
+**must**: bundle data with the methods operating on that data;
+
+### abstraction of object oriented programming
+
+`AL0202 Abstraction of Object Oriented Programming`
+
+**must**: keep common features/attributes in various concrete objects;
+
+### inheritance of object oriented programming
+
+`AL0203 Inheritance of Object Oriented Programming`
+
+**must**: basing class upon another, retaining similar implementation;
+
+### polymorphism of object oriented programming
+
+`AL0203 Polymorphism of Object Oriented Programming`
+
+**must**: providing a single interface to different types entities;
 
 ## class design
 
@@ -58,12 +85,13 @@ context
 
 `AV1000 A class or interface should have a single purpose`
 
-**must**: a class or interface should have a single purpose;
+**must**: a class or interface have a single purpose;
 
-in general, a class either represents a primitive type like an email or ISBN
+*in general*, a class either represents a primitive type like an email or `ISBN`
 number, an abstraction of some business concept, a plain data structure, or is
-responsible for orchestrating the interaction between other classes; it is
-never a combination of those;
+responsible for orchestrating the interaction between other classes;
+
+**it is never a combination of those;**
 
 > a class with the word `and` in it is an obvious violation of this rule;
 >
@@ -77,21 +105,21 @@ never a combination of those;
 
 `AV1001 Only create a constructor that returns a useful object`
 
-**suggestion**: only create a constructor that returns a useful object;
+**suggested**: only create a constructor that returns a useful object;
 
-there should be no need to set additional properties before the object can be used
-for whatever purpose it was designed;
+no need to set additional properties before the object can be used for whatever
+purpose it was designed;
 
-> if constructor needs more than 3 parameters,
-> class might have too much responsibility;
+> if constructor needs more than 3 parameters, class might have too much
+> responsibility;
 
 ### interface segregation principle
 
 `AV1003 An interface should be small and focused`
 
-**recommendation**: an interface should be small and focused;
+**recommended**: do a small and focused interface;
 
->interfaces should have a name that clearly explains purpose/role;
+> do interfaces with a name that clearly explains purpose/role;
 >
 > do not combine many vaguely related members on the same interface just
 > because they were all on the same class;
@@ -101,41 +129,43 @@ for whatever purpose it was designed;
 
 ### favor interface to base class
 
-`AV1004 Use an interface rather than a base class to support multiple implementations`
+`AV1004 Use an interface rather than a base class to support multiple
+implementations`
 
-**suggestion**: use an interface rather than a base class to support multiply implementations;
+**suggested**: use an interface rather than a base class to support multiply
+implementations;
 
 > if there is need to expose an extension point from class,
->expose it as an interface rather than as a base class;
+> expose it as an interface rather than as a base class;
 >
 > you may implement an abstract default implementation of
-> interface that can serve as a starting point
+> interface that can serve as a starting point;
 
 ### use interfaces to decouple classes from each other
 
 `AV1005 Use an interface to decouple classes from each other`
 
-**recommendation**: interfaces are a very effective mechanism for decoupling
-classes from each other; they are:
+**recommended**: interfaces are a very effective mechanism for decoupling
+classes from each other;
 
 - preventing bidirectional associations;
 
 - simplify replacing one implementation with another;
 
-- allow the replacement of an expensive external service or resource with
-  a temporary stub for use in a non-production environment;
+- allow the replacement of an expensive external service or resource with a
+  temporary stub for use in a non-production environment;
 
 - allow the replacement of the actual implementation with a dummy/fake one;
 
-- with using a dependency injection framework allow to centralize the choice
-  of which class is used whenever a specific interface is requested;
+- with using a dependency injection framework allow to centralize the choice of
+  which class is used whenever a specific interface is requested;
 
 ### avoid static classes
 
 `AV1008 Avoid static classes`
 
-**suggestion**: static classes very often lead to badly designed code;
-they are also very difficult, if not impossible, to test in isolation;
+**suggested**: static classes very often lead to badly designed code; they are
+also very difficult, if not impossible, to test in isolation;
 
 > exception can be the exception of extension method containers;
 >
@@ -152,24 +182,24 @@ a reference to the base class or through the derived class;
 
 > [compiler warning CS0114](https://docs.microsoft.com/en-us/dotnet/csharp/misc/cs0114)
 > is issued when breaking
-> [polymorphism](#principles-of-object-oriented-programming)
+> [polymorphism](#polymorphism-of-object-oriented-programming)
 > one of the most essential object-orientation principles;
 
 ### liskov substitution principle
 
-`AV1011 it should be possible to treat a derived object as if it were a base
+`AV1011 It should be possible to treat a derived object as if it were a base
 class object`
 
-**recommendation**: you should be able to use a reference to an object of
-a derived class wherever a reference to its base class object is used without
-knowing the specific derived class;
+**recommended**: be able to use a reference to an object of a derived class
+wherever a reference to its base class object is used without knowing the
+specific derived class;
 
-> violations of this rule:
+> violations of this rule;
 >
-> throwing a `NotImplementedException` when overriding some of the base-class
+> - throwing a `NotImplementedException` when overriding some of the base-class
 > methods;
 >
-> not honoring the behavior expected by the base class;
+> - not honoring the behavior expected by the base class;
 
 ### don't refer to derived classes from the base class
 
@@ -185,44 +215,45 @@ adding new derived classes;
 
 > see also [law of demeter](https://en.wikipedia.org/wiki/Law_of_Demeter)
 
-**recommendation**: an object should not expose any other classes it depends
-on because callers may misuse that exposed property or method to access the
-object behind it;
+**recommended**: do not expose in object any other classes it depends on, cause
+callers may misuse that exposed property/method to access the object behind it;
 
 doing so, you allow calling code to become coupled to the class you are using,
 and thereby limiting the chance that you can easily replace it in a future;
 
-- each unit should have only limited knowledge about other units: only units
+- each unit to have only limited knowledge about other units; only units
   *closely* related to the current unit;
 
-- each unit should only talk to its friends;
+- each unit only talk to its friends;
 
 - only talk to your immediate friends;
 
-> using a class that is designed using the [fluent interface pattern](https://en.wikipedia.org/wiki/Fluent_interface)
+> using a class that is designed using the
+> [fluent interface pattern](https://en.wikipedia.org/wiki/Fluent_interface)
 > seems to violate this rule, but it is simply returning itself so that method
 > chaining is allowed;
 >
 > [dependency injection frameworks](https://en.wikipedia.org/wiki/Dependency_injection#Dependency_injection_frameworks)
 > often require you to expose a dependency as a public property; as long as
-> this property is not used for anything other than dependency injection I
-> would not consider it a violation;
+> this property is not used for anything other than dependency injection it is
+> not consider to be a violation;
 
 ### avoid bidirectional dependencies
 
 `AV1020 Avoid bidirectional dependencies`
 
-**must**: two classes know about each other's public members or rely on
-each other's internal behavior: refactoring or replacing one of those classes
+**must**: two classes know about each other's public members or rely on each
+other's internal behavior: refactoring or replacing one of those classes
 requires changes on both parties and may involve a lot of unexpected work;
 
 > obvious way of breaking that dependency is to introduce an interface for one
-> of the classes and using Dependency Injection;
+> of the classes and using dependency injection;
 >
-> domain models such as defined in [domain-driven design](https://en.wikipedia.org/wiki/Domain-driven_design)
+> domain models such as defined in
+> [domain-driven design](https://en.wikipedia.org/wiki/Domain-driven_design)
 > tend to occasionally involve bidirectional associations that model real-life
 > associations; in those cases, make sure they are really necessary, and if
-> they are, keep them in;
+> they are, keep them in mind;
 
 ### classes should have state and behavior
 
@@ -235,7 +266,8 @@ also have a few *static* classes with a lot of behavior;
 > and move the logic close to the data it applies to;
 >
 > the only exceptions to this rule are classes that are used to transfer data
-> over a communication channel, also called [data transfer objects](https://martinfowler.com/eaaCatalog/dataTransferObject.html)
+> over a communication channel, also called
+> [data transfer objects](https://martinfowler.com/eaaCatalog/dataTransferObject.html)
 > or a class that wraps several parameters of a method;
 
 ### classes should protect the consistency of their internal state
@@ -271,14 +303,14 @@ public void Render()
 
 **must**: properties should be stateless with respect to other properties;
 
-there should not be a difference between first setting property `DataSource` and
-then `DataMember` or vice-versa;
+> example; no difference between first setting property `DataSource` and then
+> `DataMember` and vice-versa;
 
 ### use a method instead of a property
 
 `AV1105 Use a method instead of a property`
 
-**suggestion**: use a method instead of a property;
+**suggested**: use a method instead of a property;
 
 - if the work is more expensive than setting a field value;
 
@@ -292,7 +324,8 @@ then `DataMember` or vice-versa;
 - if the operation causes a side effect such as changing some internal state not
   directly related to the property
 
-  > this violates the [command query separation principle](https://en.wikipedia.org/wiki/Command%E2%80%93query_separation);
+  > this violates the
+  > [command query separation principle](https://en.wikipedia.org/wiki/Command%E2%80%93query_separation);
 
 > exception: populating an internal cache or implementing lazy-loading;
 
@@ -319,12 +352,12 @@ different rules that do not cooperate;
 
 `AV1125 Don't expose stateful objects through static members`
 
-> a stateful object is an object that contains many properties and lots of
+> `a stateful object` is an object that contains many properties and lots of
 > behavior behind it;
 
-**recommended**: if you expose such an object through a static property or method
-of some other object, it will be very difficult to refactor or unit test a class
-that relies on such a stateful object;
+**recommended**: if you expose such an object through a static property or
+method of some other object, it will be very difficult to refactor or unit test
+a class that relies on such a stateful object;
 
 > example: the `HttpContext.Current` property, part of `ASP.NET`; many see the
 > `HttpContext` class as a source of a lot of ugly code; in fact, the testing
@@ -336,7 +369,7 @@ that relies on such a stateful object;
 `AV1130 Return an IEnumerable<T> or ICollection<T> instead of a concrete
 collection class`
 
-**recommendation**: you generally don't want callers to be able to change an
+**recommended**: you generally don't want callers to be able to change an
 internal collection, so don't return arrays, lists or other collection classes
 directly; instead, return an `IEnumerable<T>`, `ICollection<T>` or `IList<T>`;
 
@@ -363,25 +396,25 @@ empty collection or an empty string instead of a `null` reference.
 
 `AV1137 Define parameters as specific as possible`
 
-> *don't ship the truck if you only need a package*
-
-**recommendation**: if your method or local function needs a specific piece of
+**recommended**: if your method or local function needs a specific piece of
 data, define parameters as specific as that and don't take a container object
 instead;
 
-> for instance, consider a method that needs a connection string that is exposed
-> through a central `IConfiguration` interface; rather than taking a dependency
-> on the entire configuration, just define a parameter for the connection string;
-> this not only prevents unnecessary coupling, it also improves maintainability
-> in the long run;
+> example: *don't ship the truck if you only need a package*;
+>
+> consider a method that needs a connection string that is exposed through a
+> central `IConfiguration` interface; rather than taking a dependency on the
+> entire configuration, just define a parameter for the connection string; this
+> not only prevents unnecessary coupling, it also improves maintainability in
+> the long run;
 
 ### consider using domain-specific value types rather than primitives
 
 `AV1140 Consider using domain-specific value types rather than primitives`
 
-**suggestions**: instead of using strings, integers and decimals for representing
-domain-specific types such as an ISBN number, an email address or amount of money,
-consider creating dedicated value objects that wrap both the data and the
+**suggested**: instead of using strings, integers and decimals for representing
+domain-specific types such as an `ISBN` number, an email address or amount of
+money, consider creating dedicated value objects that wrap both the data and the
 validation rules that apply to it; by doing this, you prevent ending up having
 multiple implementations of the same business rules, which both improves
 maintainability and prevents bugs;
@@ -392,7 +425,7 @@ maintainability and prevents bugs;
 
 `AV1200 Throw exceptions rather than returning some kind of status value`
 
-**recommendation**: a code base that uses return values to report success or
+**recommended**: a code base that uses return values to report success or
 failure tends to have nested if-statements sprinkled all over the code; quite
 often, a caller forgets to check the return value anyway; structured exception
 handling has been introduced to allow you to throw exceptions and catch or
@@ -403,14 +436,14 @@ exceptions whenever an unexpected situation occurs;
 
 `AV1202 Provide a rich and meaningful exception message text`
 
-**recommended**: the message should explain the cause of the exception,
-and clearly describe what needs to be done to avoid the exception;
+**recommended**: the message should explain the cause of the exception, and
+clearly describe what needs to be done to avoid the exception;
 
 ### throw the most specific exception that is appropriate
 
 `AV1205 Throw the most specific exception that is appropriate`
 
-**suggestion**: throw the most specific exception that is appropriate;
+**suggested**: throw the most specific exception that is appropriate;
 
 > example: if a method receives a `null` argument, it should throw
 > `ArgumentNullException` instead of its base type `ArgumentException`;
@@ -476,7 +509,7 @@ virtual method should be the same as the event name prefixed with `On`;
 
 `AV1230 Consider providing property-changed events`
 
-**suggestion**: consider providing events that are raised when certain properties
+**suggested**: consider providing events that are raised when certain properties
 are changed; such an event should be named `PropertyChanged`;
 
 > if your class has many properties that require corresponding events, consider
@@ -503,7 +536,7 @@ if there is no event data, pass `EventArgs.Empty` instead of `null`;
 
 `AV1240 Use generic constraints if applicable`
 
-**recommendation**: instead of casting to and from the object type in generic
+**recommended**: instead of casting to and from the object type in generic
 types or methods, use `where` constraints or the `as` operator to specify the
 exact characteristics of the generic parameter;
 
@@ -594,7 +627,7 @@ decide what to expose as a public member or type;
 bool hasOrders = !customer.HasNoOrders;
 ```
 
-**recommendation**: although a property like `customer.HasNoOrders` makes sense,
+**recommended**: although a property like `customer.HasNoOrders` makes sense,
 avoid using it in a negative condition; double negatives are more difficult to
 grasp than simple expressions;
 
@@ -602,7 +635,7 @@ grasp than simple expressions;
 
 `AV1505 Name assemblies after their contained namespace`
 
-**suggestion**: all dlls should be named according to the pattern
+**suggested**: all dlls should be named according to the pattern
 `Product.Component.dll` where `Product` refers to your product's name and
 `Component` contains one or more dot-separated clauses
 
@@ -615,21 +648,21 @@ Vulmy.Client.Web.dll
 > guideline, that assembly should be called `Vulmy.Server.Web.Binding.dll`;
 >
 > exception: if you decide to combine classes from multiple unrelated namespaces
-> into one assembly, consider suffixing the assembly name with `Core`, but do not
-> use that suffix in the namespaces; for instance: `Vulmy.Server.Web.Core.dll`;
+> into one assembly, consider suffixing the assembly name with `Core`, but do
+> not use that suffix in the namespaces; example: `Vulmy.Server.Web.Core.dll`;
 
 ### name a source file to the type it contains
 
 `AV1506 Name a source file to the type it contains`
 
-**suggestion**: use `PascalCasing` to name the file and don't use underscores;
+**suggested**: use `PascalCasing` to name the file and don't use underscores;
 don't include (the number of) generic type parameters in the file name;
 
 ### limit the contents of a source code file to one type
 
 `AV1507 Limit the contents of a source code file to one type`
 
-**suggestion**: limit the contents of a source code file to one type;
+**suggested**: limit the contents of a source code file to one type;
 
 > exceptions:
 >
@@ -642,7 +675,7 @@ don't include (the number of) generic type parameters in the file name;
 
 `AV1508 Name a source file to the logical function of the partial type`
 
-**suggestion**: when using partial types and allocating a part per file, name
+**suggested**: when using partial types and allocating a part per file, name
 each file after the logical part that part plays;
 
 ```csharp
@@ -661,7 +694,8 @@ public partial class MyClass
 
 `AV1510 Use using statements instead of fully qualified type names`
 
-**suggestion**: limit usage of fully qualified type names to prevent name clashing;
+**suggested**: limit usage of fully qualified type names to prevent name
+clashing;
 
 ```csharp
 
@@ -687,8 +721,8 @@ var list = new List<string>();
 
 > exception: strings intended for logging or tracing;
 
-**must**: don't use literal values, either numeric or strings, in your code, other
-than to define symbolic constants;
+**must**: don't use literal values, either numeric or strings, in your code,
+other than to define symbolic constants;
 
 ```csharp
 // valid;
@@ -746,7 +780,7 @@ var list = new ReadOnlyCollection();
 
 `AV1521 Declare and initialize variables as late as possible`
 
-**recommendation**: avoid the c/visual basic/pascal styles where all variables
+**recommended**: avoid the c/visual basic/pascal styles where all variables
 have to be defined at the beginning of a block, but rather define and initialize
 each variable at the point where it is needed;
 
@@ -761,8 +795,8 @@ each variable at the point where it is needed;
 var result = someField = GetSomeMethod();
 ```
 
-> exception: multiple assignments per statement are allowed by using out variables,
-> is-patterns or deconstruction into tuples
+> exception: multiple assignments per statement are allowed by using `out`
+> variables, `is`-patterns or deconstruction into tuples;
 >
 > ```csharp
 > bool success = int.TryParse(text, out int result);
@@ -781,7 +815,7 @@ var result = someField = GetSomeMethod();
 
 > see also [object and collection initializers](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/object-and-collection-initializers);
 
-**recommendation**: favor object/collection initializers over separate statements;
+**recommended**: favor object/collection initializers over separate statements;
 
 ```csharp
 // invalid;
@@ -821,7 +855,7 @@ var countryLookupTable = new Dictionary<string, string>
 
 `AV1525 Don't make explicit comparisons to true or false`
 
-**must**: it is bad style to compare a bool-type expression to `true` or `false`;
+**must**: not to compare a bool-type expression to `true` or `false`;
 
 ```csharp
 // invalid;
@@ -836,7 +870,7 @@ while (condition) { }
 
 `AV1530 Don't change a loop variable inside a for loop`
 
-**recommendation**: updating the loop variable within the loop body is generally
+**recommended**: updating the loop variable within the loop body is generally
 considered confusing, even more so if the loop variable is modified in more than
 one place;
 
@@ -864,17 +898,17 @@ for (int index = 0; index < 10; ++index)
 
 `AV1532 Avoid nested loops`
 
-**recommendation**: a method that nests loops is more difficult to understand than
+**recommended**: a method that nests loops is more difficult to understand than
 one with only a single loop. In fact, in most cases nested loops can be replaced
-with a much simpler linq query that uses the `from` keyword twice or more to join
-the data;
+with a much simpler linq query that uses the `from` keyword twice or more to
+join the data;
 
 ### add a block after `if`, `else`, `do`, `while`, `for`, `foreach`, `case`
 
 `AV1535 Always add a block after the keywords if, else, do, while, for, foreach
 and case`
 
-**recommendation**: always add a block after the keywords `if`, `else`, `do`,
+**recommended**: always add a block after the keywords `if`, `else`, `do`,
 `while`, `for`, `foreach`, `case`;
 
 > this also avoids possible confusion in statements of the form;
@@ -901,8 +935,8 @@ and case`
 
 `AV1536 always add a default block after the last case in a switch statement`
 
-**must**: add a descriptive comment if the default block is supposed to be empty;
-moreover, if that block is not supposed to be reached throw an
+**must**: add a descriptive comment if the default block is supposed to be
+empty; moreover, if that block is not supposed to be reached throw an
 `InvalidOperationException` to detect future changes that may fall through the
 existing cases; this ensures better code, because all paths the code can travel
 have been thought about;
@@ -926,7 +960,7 @@ void Foo(string answer)
 
         default:
         {
-            throw new InvalidOperationException($"Unexpected answer `{answer}`");
+            throw new InvalidOperationException($"Unexpected answer:`{answer}`");
         }
     }
 }
@@ -936,7 +970,7 @@ void Foo(string answer)
 
 `AV1537 Finish every if-else-if statement with an else clause`
 
-**recommendation**: finish every if-else-if statement with an else clause;
+**recommended**: finish every if-else-if statement with an else clause;
 
 ```csharp
 void Foo(string answer)
@@ -960,18 +994,18 @@ void Foo(string answer)
 
 `AV1540 Be reluctant with multiple return statements`
 
-**recommendation**: one entry, one exit is a sound principle and keeps control
+**recommended**: one entry, one exit is a sound principle and keeps control
 flow readable; however, if the method body is very small and complies with
 [methods should not exceed 7 statements](#methods-should-not-exceed-7-statements)
-then multiple return statements may actually improve readability over some central
-boolean flag that is updated at various points;
+then multiple return statements may actually improve readability over some
+central boolean flag that is updated at various points;
 
 ### don't use an if-else construct instead of a simple conditional assignment
 
 `AV1545 Don't use an if-else construct instead of a simple (conditional)
 assignment`
 
-**recommendation**: express your intentions directly;
+**recommended**: express your intentions directly;
 
 ```csharp
 
@@ -1042,7 +1076,7 @@ return employee.Manager?.Name;
 
 `AV1547 Encapsulate complex expressions in a property, method or local function`
 
-**must**: encapsulate complex expressions in a property, method or local function;
+**must**: encapsulate complex expressions in a property/method/local function;
 
 ```csharp
 if (member.HidesBaseClassMember && (member.NodeType != NodeType.InstanceInitializer))
@@ -1069,14 +1103,14 @@ private bool NonConstructorMemberUsesNewKeyword(Member member)
 }
 ```
 
-you still need to understand the expression if you are modifying it,
-but the calling code is now much easier to grasp;
+you still need to understand the expression if you are modifying it, but the
+calling code is now much easier to grasp;
 
 ### call the more overloaded method from other overloads
 
 `AV1551 Call the more overloaded method from other overloads`
 
-**recommendation**: this guideline only applies to overloads that are intended to
+**recommended**: this guideline only applies to overloads that are intended to
 provide optional arguments;
 
 ```csharp
@@ -1104,13 +1138,14 @@ public class MyString
 
 the class `MyString` provides three overloads for the `IndexOf` method, but two
 of them simply call the one with one more parameter; notice that the same rule
-applies to class constructors; implement the most complete overload and call that
-one from the other overloads using the `this()` operator; also notice that the
-parameters with the same name should appear in the same position in all overloads;
+applies to class constructors; implement the most complete overload and call
+that one from the other overloads using the `this()` operator; also notice that
+the parameters with the same name should appear in the same position in all
+overloads;
 
-> if you also want to allow derived classes to override these methods, define the
-> most complete overload as a non-private virtual method that is called by all
-> overloads;
+> if you also want to allow derived classes to override these methods, define
+> the most complete overload as a non-private virtual method that is called by
+> all overloads;
 
 ### only use optional arguments to replace overloads
 
@@ -1149,22 +1184,24 @@ public virtual int IndexOf(string phrase, int startIndex = 0, int count = -1)
 > you must use overloaded methods instead;
 >
 > the default values of the optional parameters are stored at the caller side;
-> as such, changing the default value without recompiling the calling code will not
-> apply the new default value;
+> as such, changing the default value without recompiling the calling code will
+> not apply the new default value;
 >
 > when an interface method defines an optional parameter, its default value is
-> discarded during overload resolution unless you call the concrete class through
-> the interface reference; see [optional argument corner cases, part one](https://blogs.msdn.microsoft.com/ericlippert/2011/05/09/optional-argument-corner-cases-part-one/);
+> discarded during overload resolution unless you call the concrete class
+> through the interface reference; see
+> [optional argument corner cases, part one](https://blogs.msdn.microsoft.com/ericlippert/2011/05/09/optional-argument-corner-cases-part-one/);
 
 ### avoid using named arguments
 
 `AV1555 Avoid using named arguments`
 
-**suggestion**: if you need named arguments to improve the readability of the call
-to a method, that method is probably doing too much and should be refactored;
+**suggested**: if you need named arguments to improve the readability of the
+call to a method, that method is probably doing too much and should be
+refactored;
 
-> exception: the only exception where named arguments improve readability is when
-> calling a method that has parameters;
+> exception: the only exception where named arguments improve readability is
+> when calling a method that has parameters;
 >
 > ```csharp
 > object[] myAttributes = type.GetCustomAttributes(
@@ -1184,7 +1221,8 @@ focused:
 - do not return tuples with more than two elements;
 
 > if you want to use more parameters, use a structure or class to pass multiple
-> arguments; the fewer the parameters, the easier it is to understand the method;
+> arguments; the fewer the parameters, the easier it is to understand the
+> method;
 >
 > unit testing a method with many parameters requires many scenarios to test;
 >
@@ -1197,7 +1235,8 @@ focused:
 **must**: they make code less understandable and might cause people to introduce
 bugs; instead, return compound objects or tuples;
 
-> exception: calling & declaring members implementing `TryParse` pattern is allowed;
+> exception: calling & declaring members implementing `TryParse` pattern is
+> allowed;
 >
 > ```csharp
 > bool success = int.TryParse(text, out number);
@@ -1207,7 +1246,7 @@ bugs; instead, return compound objects or tuples;
 
 `AV1564 Avoid signatures that take a bool parameter`
 
-**recommendation**: avoid signatures that take a `bool` parameter;
+**recommended**: avoid signatures that take a `bool` parameter;
 
 ```csharp
 // invalid;
@@ -1225,18 +1264,19 @@ an alternative solution is to replace the bool with an enumeration;
 
 `AV1568 Don't use parameters as temporary variables`
 
-**suggestion**: never use a parameter as a convenient variable for storing
-temporary state; even though the type of your temporary variable may be the same,
-the name usually does not reflect the purpose of the temporary variable;
+**suggested**: never use a parameter as a convenient variable for storing
+temporary state; even though the type of your temporary variable may be the
+same, the name usually does not reflect the purpose of the temporary variable;
 
 ### prefer `is` patterns over `as` operations
 
 `AV1570 Prefer is patterns over as operations`
 
-**must**: if you use `as` to safely upcast an interface reference to a certain type,
-always verify that the operation does not return `null`; failure to do so may cause
-a `NullReferenceException` at a later stage if the object did not implement that
-interface; pattern matching syntax prevents this and improves readability;\
+**must**: if you use `as` to safely upcast an interface reference to a certain
+type, always verify that the operation does not return `null`; failure to do so
+may cause a `NullReferenceException` at a later stage if the object did not
+implement that interface; pattern matching syntax prevents this and improves
+readability;
 
 ```csharp
 // invalid;
@@ -1258,8 +1298,8 @@ if (user is RemoteUser remoteUser)
 `AV1575 Don't comment out code`
 
 **must**: never commit code that is commented out; instead, use a work item
-tracking system to keep track of some work to be done; nobody knows what to do when
-they encounter a block of commented-out code;
+tracking system to keep track of some work to be done; nobody knows what to do
+when they encounter a block of commented-out code;
 
 ## naming
 
@@ -1267,13 +1307,13 @@ they encounter a block of commented-out code;
 
 `AV1701 Use US English`
 
-**must**: all identifiers (such as types, type members, parameters and variables)
-should be named using words from the american english;
+**must**: all identifiers (such as types, type members, parameters and
+variables) should be named using words from the american english;
 
 - choose easily readable;
 - preferably grammatically correct names;
 - favor readability over brevity;
-- avoid using names that conflict with widely used programming languages keywords;
+- avoid names that conflict with widely used programming languages keywords;
 
 ```csharp
 // valid;
@@ -1324,7 +1364,7 @@ public bool ScrollableX { get; }
 
 `AV1704 Don't include numbers in variables, parameters and type members`
 
-**suggestion**: in most cases they are a lazy excuse for not defining a clear and
+**suggested**: in most cases they are a lazy excuse for not defining a clear and
 intention-revealing name;
 
 ### don't prefix fields
@@ -1343,7 +1383,7 @@ local variables from member fields is generally too big;
 
 `AV1706 Don't use abbreviations`
 
-**recommendation**: don't use abbreviations; avoid single character variable names,
+**recommended**: don't use abbreviations; avoid single character variable names,
 such as `i` or `q`; use `index` or `query` instead;
 
 ```csharp
@@ -1358,12 +1398,12 @@ BtnOnClick
 > or well-known in your work domain; for example: use acronym `UI` instead of
 > `UserInterface` and abbreviation `Id` instead of `Identity`;
 
-### name members, parameters, variables according to their meaning, not their type
+### name members, parameters, variables according to their meaning, not type
 
-`AV1707 Name members, parameters and variables according to their meaning and not
-their type`
+`AV1707 Name members, parameters and variables according to their meaning and
+not their type`
 
-**recommendation**: name members/parameters/variables according to their meaning;
+**recommended**: name members/parameters/variables according to their meaning;
 
 - use functional names;
 
@@ -1377,7 +1417,7 @@ their type`
 
 `AV1708 Name types using nouns, noun phrases or adjective phrases`
 
-**recommendation**: name types using nouns, noun phrases or adjective phrases;
+**recommended**: name types using nouns, noun phrases or adjective phrases;
 
 ```csharp
 // valid;
@@ -1393,23 +1433,24 @@ SiteSecurity       // the name is technically okay;
                    // but it does not say anything about its purpose;
 ```
 
-> don't include terms like `Utility` or `Helper` in classes; classes with names like
-> that are usually static classes and are introduced without considering
+> don't include terms like `Utility` or `Helper` in classes; classes with names
+> like that are usually static classes and are introduced without considering
 > [object-oriented principles](#avoid-static-classes);
 
 ### name generic type parameters with descriptive names
 
 `AV1709 name generic type parameters with descriptive names`
 
-**recommendation**: name generic type parameters with descriptive names;
+**recommended**: name generic type parameters with descriptive names;
 
 - always prefix type parameter names with the letter `T`;
 
 - always use a descriptive name unless a single-letter name is completely
-  self-explanatory and a longer name would not add value; use the single letter `T`
-  as the type parameter in that case;
+  self-explanatory and a longer name would not add value; use the single letter
+  `T` as the type parameter in that case;
 
-- consider indicating constraints placed on a type parameter in the name of the parameter;
+- consider indicating constraints placed on a type parameter in the name of the
+  parameter;
 
   > example: a parameter constrained to `ISession` may be called `TSession`;
 
@@ -1438,11 +1479,11 @@ class Employee
 
 `AV1711 Name members similarly to members of related .NET Framework classes`
 
-**suggestion**: dotnet developers are already accustomed to the naming patterns the
-framework uses, so following this same pattern helps them find their way in your
-classes as well; for instance, if you define a class that behaves like a collection,
-provide members like `Add`, `Remove` and `Count` instead of `AddItem`, `Delete` or
-`NumberOfItems`;
+**suggested**: dotnet developers are already accustomed to the naming patterns
+the framework uses, so following this same pattern helps them find their way in
+your classes as well; for instance, if you define a class that behaves like a
+collection, provide members like `Add`, `Remove` and `Count` instead of
+`AddItem`, `Delete` or `NumberOfItems`;
 
 ### avoid short names or names that can be mistaken for other names
 
@@ -1458,7 +1499,7 @@ bool b001 = (lo == l0) ? (I1 == 11) : (lOl != 101);
 
 `AV1715 Properly name properties`
 
-**recommendation**: properly name properties;
+**recommended**: properly name properties;
 
 - name properties with nouns, noun phrases or occasionally adjective phrases;
 
@@ -1472,25 +1513,26 @@ bool b001 = (lo == l0) ? (I1 == 11) : (lOl != 101);
   that is strongly typed to an enumeration, the name of the property can be the
   same as the name of the enumeration;
 
-  > example, if you have an enumeration named `CacheLevel`, a property that returns
-  > one of its values can also be named `CacheLevel`;
+  > example, if you have an enumeration named `CacheLevel`, a property that
+  > returns one of its values can also be named `CacheLevel`;
 
 ### name methods and local functions using verbs or verb-object pairs
 
 `AV1720 Name methods and local functions using verbs or verb-object pairs`
 
-**recommendation**: name a method or local function using a verb like `Show` or
-a verb-object pair such as `ShowDialog`; a good name should give a hint on the what
-of a member, and if possible, the why;
+**recommended**: name a method or local function using a verb like `Show` or
+a verb-object pair such as `ShowDialog`; a good name should give a hint on the
+what of a member, and if possible, the why;
 
-> don't include `And` in the name of a method or local function; that implies that
-> it is doing more than one thing, which violates [the single responsibility principle](#single-responsibility-principle);
+> don't include `And` in the name of a method or local function; that implies
+> that it is doing more than one thing, which violates
+> [the single responsibility principle](#single-responsibility-principle);
 
 ### name namespaces using names, layers, verbs and features
 
 `AV1725 Name namespaces using names, layers, verbs and features`
 
-**suggestion**: name namespaces using names, layers, verbs and features;
+**suggested**: name namespaces using names, layers, verbs and features;
 
 ```csharp
 // valid;
@@ -1525,7 +1567,7 @@ public event EventHandler<SearchArgs> Search;
 
 `AV1737 Use -ing and -ed to express pre-events and post-events`
 
-**suggestion**: use `-ing` and `-ed` to express pre-events and post-events;
+**suggested**: use `-ing` and `-ed` to express pre-events and post-events;
 
 ```csharp
 // valid;
@@ -1546,17 +1588,17 @@ Deleted  // occurs when the object is already deleted;
 
 `AV1738 Prefix an event handler with "On"`
 
-**suggestion**: it is good practice to prefix the event handling method with `On`;
+**suggested**: do prefix the event handling method with `On`;
 
 > example: a method that handles its own `Closing` event should be named
-> `OnClosing` and a method that handles the `Click` event of its `okButton` field
-> should be named `OkButtonOnClick`;
+> `OnClosing` and a method that handles the `Click` event of its `okButton`
+> field should be named `OkButtonOnClick`;
 
 ### use an underscore for irrelevant lambda parameters
 
 `AV1739 Use an underscore for irrelevant lambda parameters`
 
-**suggestion**: if you use a lambda expression (for instance, to subscribe to an
+**suggested**: if you use a lambda expression (for instance, to subscribe to an
 event) and the actual parameters of the event are irrelevant;
 
 ```csharp
@@ -1567,17 +1609,17 @@ button.Click += (_, __) => HandleClick();
 
 `AV1745 Group extension methods in a class suffixed with Extensions`
 
-**suggestion**: if the name of an extension method conflicts with another member
-or extension method, you must prefix the call with the class name; having them in
-a dedicated class with the `Extensions` suffix improves readability;
+**suggested**: if the name of an extension method conflicts with another member
+or extension method, you must prefix the call with the class name; having them
+in a dedicated class with the `Extensions` suffix improves readability;
 
 ### postfix asynchronous methods with `Async` or `TaskAsync`
 
 `AV1755 Postfix asynchronous methods with Async or TaskAsync`
 
-**recommended**: the general convention for methods and local functions that return
-`Task` or `Task<TResult>` is to postfix them with `Async`; but if such a method
-already exists, use `TaskAsync` instead;
+**recommended**: the general convention for methods and local functions that
+return `Task` or `Task<TResult>` is to postfix them with `Async`; but if such a
+method already exists, use `TaskAsync` instead;
 
 ## performance
 
@@ -1585,15 +1627,15 @@ already exists, use `TaskAsync` instead;
 
 `AV1800 Consider using Any() to determine whether an IEnumerable<T> is empty`
 
-**suggestion**: when a member or local function returns an `IEnumerable<T>` or
+**suggested**: when a member or local function returns an `IEnumerable<T>` or
 other collection class that does not expose a `Count` property, use the `Any()`
-extension method rather than `Count()` to determine whether the collection contains
-items; if you do use `Count()`, you risk that iterating over the entire collection
-might have a significant impact (such as when it really is an `IQueryable<T>` to
-a persistent store);
+extension method rather than `Count()` to determine whether the collection
+contains items; if you do use `Count()`, you risk that iterating over the entire
+collection might have a significant impact (such as when it really is an
+`IQueryable<T>` to a persistent store);
 
-> if you return an `IEnumerable<T>` to prevent changes from calling code consider
-> using new read-only classes;
+> if you return an `IEnumerable<T>` to prevent changes from calling code
+> consider using new read-only classes;
 
 ### only use async for low-intensive long-running activities
 
@@ -1653,11 +1695,11 @@ they'll be waiting on each other;
 
 ## framework
 
-### use c# type aliases instead of the types from the `System` namespace
+### use csharp type aliases instead of the types from the `System` namespace
 
 `AV2201 Use C# type aliases instead of the types from the System namespace`
 
-**must**: use c# type aliases instead of the types from the `System` namespace; (AV2201)
+**must**: use c# type aliases instead of the types from the `System` namespace;
 
 ```csharp
 // invalid;
@@ -1671,8 +1713,8 @@ string
 int
 ```
 
-> exception: when referring to static members of those types, it is custom to use
-> the full [csl](https://simple.wikipedia.org/wiki/Common_Language_Specification)
+> exception: when referring to static members of those types, it is custom to
+> use the full [csl](https://simple.wikipedia.org/wiki/Common_Language_Specification)
 > name;
 >
 > ```csharp
@@ -1682,12 +1724,13 @@ int
 > // valid;
 > Int32.Parse();
 > ReadInt32     // members that need to specify
-> GetUInt16     // the type they return
+> GetUInt16     // the type they return;
 > ```
 
 ### prefer language syntax over explicit calls to underlying implementations
 
-`AV2202 Prefer language syntax over explicit calls to underlying implementations`
+`AV2202 Prefer language syntax over explicit calls to underlying
+implementations`
 
 **must**: language syntax makes code more concise; the abstractions make later
 refactoring easier (and sometimes allow for extra optimizations);
@@ -1737,7 +1780,7 @@ if (tuple1 == tuple2)
 
 `AV2207 Don't hard-code strings that change based on the deployment`
 
-**suggestion**: don't hard-code strings that change based on the deployment;
+**suggested**: don't hard-code strings that change based on the deployment;
 
 > example: connection strings, server addresses, etc.; use `Resources`, the
 > `ConnectionStrings` property of the `ConfigurationManager` class; maintain the
@@ -1755,7 +1798,7 @@ compiler to enforce the highest possible code quality;
 
 `AV2220 Avoid LINQ query syntax for simple expressions`
 
-**suggestion**: avoid linq query syntax for simple expressions;
+**suggested**: avoid linq query syntax for simple expressions;
 
 ```csharp
 // invalid;
@@ -1769,7 +1812,7 @@ var query = items.Where(item => item.Length > 0);
 
 `AV2221 Use lambda expressions instead of anonymous methods`
 
-**recommendation**: lambda expressions provide a more elegant alternative for
+**recommended**: lambda expressions provide a more elegant alternative for
 anonymous methods;
 
 ```csharp
@@ -1794,8 +1837,8 @@ var customer = customers.FirstOrDefault(customer => customer.Name == "Tom");
 languages; using it introduces a serious performance bottleneck because the
 compiler has to generate some complex reflection code;
 
-use it only for calling methods or members of a dynamically created instance class
-as an alternative to `Type.GetProperty()` and `Type.GetMethod()`;
+use it only for calling methods or members of a dynamically created instance
+class as an alternative to `Type.GetProperty()` and `Type.GetMethod()`;
 
 ### favor `async`/`await` over `Task` continuations
 
@@ -1833,7 +1876,7 @@ public async Task<Data> GetDataAsync()
 
 `AV2305 Document all public, protected and internal types and members`
 
-**recommendation**: documenting code allows ide to pop-up the documentation when
+**recommended**: documenting code allows ide to pop-up the documentation when
 your class is used somewhere else; furthermore, by properly documenting your
 classes, tools can generate professionally looking class documentation;
 
@@ -1841,7 +1884,7 @@ classes, tools can generate professionally looking class documentation;
 
 `AV2306 Write XML documentation with other developers in mind`
 
-**recommendation**: write the documentation of your type with other developers in
+**recommended**: write the documentation of your type with other developers in
 mind; assume they will not have access to the source code and try to explain how
 to get the most out of the functionality of your type;
 
@@ -1849,7 +1892,7 @@ to get the most out of the functionality of your type;
 
 `AV2307 Write MSDN-style documentation`
 
-**suggestion**: following the [msdn online](https://msdn.microsoft.com/en-US/)
+**suggested**: following the [msdn online](https://msdn.microsoft.com/en-US/)
 help style and word choice helps developers find their way through your
 documentation more easily;
 
@@ -1857,7 +1900,7 @@ documentation more easily;
 
 `AV2310 Avoid inline comments`
 
-**recommendation**: if you feel the need to explain a block of code using a
+**recommended**: if you feel the need to explain a block of code using a
 comment, consider replacing that block with a method with a clear name;
 
 ### only write comments to explain complex algorithms or decisions
@@ -1866,21 +1909,21 @@ comment, consider replacing that block with a method with a clear name;
 
 **must**: focus comments on the why and what of a code block and not the how;
 avoid explaining the statements in words, but instead help the reader understand
-why you chose a certain solution or algorithm and what you are trying to achieve;
-if applicable, also mention that you chose an alternative solution because you ran
-into a problem with the obvious solution;
+why you chose a certain solution or algorithm and what you are trying to
+achieve; if applicable, also mention that you chose an alternative solution
+because you ran into a problem with the obvious solution;
 
 ### use comments for tracking work to be done later with caution
 
 `AV2318 Don't use comments for tracking work to be done later`
 
-**suggestion**: use comments for tracking work to be done later with caution;
+**suggested**: use comments for tracking work to be done later with caution;
 try to fix issues as soon as possible, or delete them, opening new issue on
 git repository; avoid such comments on `master` brunch and in release app version;
 
 ### use comment patterns
 
-**suggestion**: use comment patterns; [see commenting](#use-comment-patterns);
+**suggested**: use comment patterns; [see commenting](#use-comment-patterns);
 
 > [vs code extension](https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments)
 > & [configuration](https://github.com/aaron-bond/better-comments#configuration)
@@ -2155,8 +2198,8 @@ dotnet --version
 - start the linq statement with all the `from` expressions and don't interweave
   them with restrictions;
 
-- add parentheses around every binary expression, but don't add parentheses around
-  unary expressions;
+- add parentheses around every binary expression, but don't add parentheses
+  around unary expressions;
 
   > example: `if (!string.IsNullOrEmpty(str) && (str != "new"))`;
 
@@ -2169,7 +2212,7 @@ dotnet --version
 
 `AV2402 Order and group namespaces according to the company`
 
-**suggestion**: order and group namespaces
+**suggested**: order and group namespaces
 
 ```csharp
 // builtin framework namespaces;
@@ -2190,26 +2233,26 @@ namespace Vulmy.Server.Api.Test // test project;
 ```
 
 > using static directives and using alias directives should be written below
-> regular using directives; always place these directives at the top of the file,
-> before any namespace declarations not inside them;
+> regular using directives; always place these directives at the top of the
+> file, before any namespace declarations not inside them;
 
 ### place members in a well-defined order
 
 `AV2406 Place members in a well-defined order`
 
 **must**: maintaining a common order allows other team members to find their way
-in your code more easily; in general, a source file should be readable from top to
-bottom, as if reading a book, to prevent readers from having to browse up and down
-through the code file;
+in your code more easily; in general, a source file should be readable from top
+to bottom, as if reading a book, to prevent readers from having to browse up and
+down through the code file;
 
 1. private fields and constants; *in a region*;
-1. public constants
-1. public static read-only fields;
-1. factory methods;
-1. constructors and the finalizer;
-1. events;
-1. public properties;
-1. other methods and private properties in calling order;
+2. public constants
+3. public static read-only fields;
+4. factory methods;
+5. constructors and the finalizer;
+6. events;
+7. public properties;
+8. other methods and private properties in calling order;
 
 > declare local functions at the bottom of their containing method bodies after
 > all executable code;
@@ -2223,13 +2266,13 @@ the main purpose of a class; therefore, use `#region` only for following;
 
 - private fields and constants; *preferably in a private definitions region*;
 - nested classes;
-- interface implementations; *if the interface is not the main purpose of class*;
+- interface implementations; *if the interface is not the class main purpose*;
 
 ### use expression-bodied members appropriately
 
 `AV2410 Use expression-bodied members appropriately`
 
-**must**: favor expression-bodied member syntax over regular member syntax only if;
+**must**: favor expression-bodied member syntax over regular member syntax `if`;
 
 - the body consists of a single statement `and`;
 - the body fits on a single line;

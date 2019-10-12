@@ -71,8 +71,8 @@ this document covers `git` and `vs code`;
 
 - wait until pull request is closed
 
-  > **suggesting** to delete branch after merging and closing pull request
-  > on both server and local machine;
+  > **suggested** to delete branch after merging and closing pull request on
+  > both server and local machine;
 
 ## issue and pull requests labels
 
@@ -96,7 +96,8 @@ this document covers `git` and `vs code`;
 
 ### priority issue label
 
-**single** label is **required** for **opened** issues with **iteration #any** milestone;
+**single** label is **required** for **opened** issues with **iteration #any**
+milestone;
 
 > scope `priority`; color: **depend on label**;
 
@@ -168,27 +169,28 @@ to `conventional commits`;
 > [optional footer]
 > ```
 
-| commit's | value         |         issue          | comment                   |
-| -------: | :------------ | :--------------------: | :------------------------ |
-|   `type` | `fix`         |       `is::bug`        | bugfixes;                 |
-|   `type` | `hotfix`      |      `is::hotfix`      | [hotfixes](#hotfixes);    |
-|   `type` | `feat`        |     `is::feature`      | features;                 |
-|   `type` | `improvement` |   `is::improvement`    | any code improvements;    |
-|   `type` | `style`       |   `is::improvement`    | code style changes/fixes; |
-|   `type` | `refactor`    |   `is::improvement`    | code refactors;           |
-|   `type` | `chore`       |   `is::improvement`    | random changes;           |
-|   `type` | `docs`        |    `scope::docs::_`    | in documentation;         |
-|   `type` | `break`       |          none          | alias `BREAKING CHANGE`;  |
-|  `scope` | `code`        |    `scope::code::_`    | in project code;          |
-|  `scope` | none          |    `scope::code::_`    | alias `code`;             |
-|  `scope` | `arch`        | `scope::code::arch::_` | in code architecture;     |
-|  `scope` | `repo`        |    `scope::repo::_`    | in repository;            |
-|  `scope` | `test`        |    `scope::test::_`    | in test code;             |
-|  `scope` | other         |     `scope::*::_`      | in other defined scopes;  |
+| commit's | value         |         issue          | comment                  |
+| -------: | :------------ | :--------------------: | :----------------------- |
+|   `type` | `fix`         |       `is::bug`        | bugfixes;                |
+|   `type` | `hotfix`      |      `is::hotfix`      | [hotfixes](#hotfixes);   |
+|   `type` | `feat`        |     `is::feature`      | features;                |
+|   `type` | `improvement` |   `is::improvement`    | any code improvements;   |
+|   `type` | `style`       |   `is::improvement`    | code style;              |
+|   `type` | `refactor`    |   `is::improvement`    | code refactors;          |
+|   `type` | `chore`       |   `is::improvement`    | random changes;          |
+|   `type` | `docs`        |    `scope::docs::_`    | in documentation;        |
+|   `type` | `break`       |          none          | alias `BREAKING CHANGE`; |
+|  `scope` | `code`        |    `scope::code::_`    | in project code;         |
+|  `scope` | none          |    `scope::code::_`    | alias `code`;            |
+|  `scope` | `arch`        | `scope::code::arch::_` | in code architecture;    |
+|  `scope` | `repo`        |    `scope::repo::_`    | in repository;           |
+|  `scope` | `test`        |    `scope::test::_`    | in test code;            |
+|  `scope` | other         |     `scope::*::_`      | in other defined scopes; |
 
 > for issue `is::merge` see affected issues in merge/pull request;
 >
-> changes for issues `is::question` cannot be commited, until issue changes type;
+> changes for issues `is::question` cannot be commited, until issue changes
+> type;
 
 ## iteration lifecycles
 
@@ -200,9 +202,10 @@ to `conventional commits`;
 | `iteration next`     |    no    | `[>n+1]`           |
 | `iteration x [smth]` |    no    | thematic           |
 
-- `iteration next` is for issues not assigned to `n`, `n+1` etc. existing iterations;
+- `iteration next` is for issues not assigned to `n`, `n+1` etc. existing
+  iterations;
 
-- `iteration x [smth]` is one and more iteration milestones with some thematic
+- `iteration x [smth]` is one and more iteration milestones with some thematic;
 
   > examples:
   >
@@ -221,7 +224,8 @@ to `conventional commits`;
 
 - new milestone for iteration `n` **must** be present;
 
-  > new milestone creation depends on how many iteration ahead are planned already;
+  > new milestone creation depends on how many iteration ahead are planned
+  > already;
   >
   > example 1: if you have `2, 3, 4` iterations opened,
   > on closing `iteration 2` the `iteration 5` must be created;
@@ -229,28 +233,29 @@ to `conventional commits`;
   > example2: if you have `iteration 3` only, on closing `iteration 3`
   > the `iteration 4` must be created;
 
-- issues **must** be assigned to created iteration,
-  presumably reassigned from `iteration next` and `iteration x [smth]` if any;
+- issues **must** be assigned to created iteration, presumably reassigned from
+  `iteration next` and `iteration x [smth]` if any;
 
-- inside `iterations #[x]` milestones, issues **must** be prioritized
-  relatively other issues in same milestones they are;
+- inside `iterations #[x]` milestones, issues **must** be prioritized relatively
+  other issues in same milestones they are;
 
-  > [priority labels](#priority-issue-label) assigned only
-  > for issues and pull request inside `iteration #[x]` milestones;
+  > [priority labels](#priority-issue-label) assigned only for issues and pull
+  > request inside `iteration #[x]` milestones;
 
 - milestones durations for `iteration #[x]` **could** be changed at this point;
 
   > other milestones' duration can be changed at any time;
   >
-  > except: `iteration next` must not have end date, and start date
-  > must be from last existing `iteration #[x]` end date;
+  > except: `iteration next` must not have end date, and start date must be from
+  > last existing `iteration #[x]` end date;
 
 ### iteration development
 
-> **suggested** iteration duration is about 3 weeks (+/- a week),
-> depending on size of team and importance of project(s);
+> **suggested** iteration duration is about 3 weeks (+/- a week), depending on
+> size of team and importance of project(s);
 
-- **no direct commits** to `master` are permitted - only pull request are acceptable;
+- **no direct commits** to `master` are permitted - only pull request are
+  acceptable;
 
   > exceptions:
   >
@@ -262,17 +267,18 @@ to `conventional commits`;
 
   - branch name **must follow pattern** `{username}-{smth}-dev`
 
-    > **not recommended**: in some exceptions one contributor may have
-    > their personal branch for contributing `{username}-all-dev`
+    > **not recommended**: in some exceptions one contributor may have their
+    > personal branch for contributing `{username}-all-dev`
 
     - `username` - branch contributor username (only `[A-z0-9]` allowed)
 
       > if several people uses branch, use prefix `group-main-`;
       >
-      > also **suggesting** to add branches for each contributor
+      > also **suggested** to add branches for each contributor
       > `group-{username}` in such cases;
 
-    - `smth` - topic of your branch; if branch dedicated to issue - use `issue{issueNumber}{issueTopic}`;
+    - `smth` - topic of your branch; if branch dedicated to issue - use
+      `issue{issueNumber}{issueTopic}`;
 
       > example: `issue42AnswerToQuestionOfUniverse`;
 
@@ -291,12 +297,12 @@ requirements for starting iteration finalization;
 
   - if tests are broken - in such case two approaches;
 
-    - **must** open issue on test in current iteration,
-      and not closing both, until tests are fixed;
+    - **must** open issue on test in current iteration, and not closing both,
+      until tests are fixed;
 
     - **degrade** tests to pass them all with degradation of project,
-      pre-release note must be added or existing downgraded;
-      after that iteration **can be closed only with pre-release**
+      pre-release note must be added or existing downgraded; after that
+      iteration **can be closed only with pre-release**
       **version and mentioning of downgrading in changelog**;
 
 - changelog for iteration **must** be written;
@@ -305,9 +311,9 @@ requirements for starting iteration finalization;
 
 - all `{username}-{smth}-dev` branches **must** be deleted;
 
-  > exception for this rule **could be** `{username}-all-dev` branches
-  > and **must be** branches for pull request and issues
-  > that has been moved to next iteration;
+  > exception for this rule **could be** `{username}-all-dev` branches and
+  > **must be** branches for pull request and issues that has been moved to next
+  > iteration;
 
 - new app version **must** be provided; [see versioning](#versioning);
 
@@ -329,20 +335,20 @@ requirements for starting iteration finalization;
 
 hotfixes are applied to already published app versions;
 
-hotfixes **recommended** for fixing bugs breaking app normal work or its features;
+hotfixes **recommended** for fixing bugs breaking app normal work or its
+features;
 
 hotfixes **not recommended** for adding new functionality or improving existing;
 
-  > exception: if new iteration dedicated to breaking api changes
-  > i.e. new major version of app, for example `v1.9.20` to `v2.0.0`;
+  > exception: if new iteration dedicated to breaking api changes i.e. new major
+  > version of app, for example `v1.9.20` to `v2.0.0`;
 
-hotfix **must** have opened issue
-with [label `is::hotfix`](#type-issue-label)
+hotfix **must** have opened issue with [label `is::hotfix`](#type-issue-label)
 assigned to current iteration and with
 [`priority::red` or `priority::stop` label](#priority-issue-label);
 
-hotfix **must** have created branch for mentioned issue
-with additional postfix `-hotfix` before `-dev` in branch name;
+hotfix **must** have created branch for mentioned issue with additional postfix
+`-hotfix` before `-dev` in branch name;
 
   > example `walpy-issue42QuestionIsNotCorrect-hotfix-dev`
 
@@ -353,13 +359,14 @@ i.e. commit with version tag;
 
 hotfix branch **must not** be merged with master branch;
 
-  > if there is no branches for releases, **suggested** to create brunch `hotfix-v{appVersionWithHotfix}`;
+  > if there is no branches for releases, **suggested** to create brunch
+  > `hotfix-v{appVersionWithHotfix}`;
 
 hotfix changes **must** include app version changes;
 
   > exception if branch for release versions exists;
 
-hotfix pull requests **must** be treated with more attention and accuracy
+hotfix pull requests **must** be treated with more attention and accuracy;
 
   > it is **advised** to have more than one reviewers and assignees
 
@@ -369,47 +376,45 @@ there are no limits on number of hotfixes per version;
 
 > all versions must follow [semantic versioning](https://semver.org/);
 
-versioning is bind to iteration cycle workflow; in the end of
-each cycle version may be increased and new app may be released;
+versioning is bind to iteration cycle workflow; in the end of each cycle version
+may be increased and new app may be released;
 
-> if there is some degradation in project,
-> it is advised to lower pre-release postfix or add one if no present;
+> if there is some degradation in project, it is advised to lower pre-release
+> postfix or add one if no present;
 >
-> if project gaining objective stability,
-> it is advised to upper pre-release postfix or even remove;
+> if project gaining objective stability, it is advised to upper pre-release
+> postfix or even remove;
 
 files changes which change app version in project **must be**
 in separate commit which closes iteration;
 
-> commit with changes to version is allowed to be committed directly
-> in master branch; message of commit **recommended** to follow
-> pattern `close iteration {iterationNumber}` and comment include
-> version of app and **suggested** version of its internal
-> dependencies if any;
+> commit with changes to version is allowed to be committed directly in master
+> branch; message of commit **recommended** to follow pattern
+> `close iteration {iterationNumber}` and comment include version of app and
+> **suggested** version of its internal dependencies if any;
 
 if changes in files for new version are not required,
 there must be an empty commit;
 [see `git commit --allow-empty`](https://git-scm.com/docs/git-commit#git-commit---allow-empty);
 
-**suggesting** following pre-release postfix;
+**suggested** following pre-release postfix;
 
 - **zero** - app does nothing it promises and/or unusable;
 
-- **alpha** - app has some may be working functionality and features
-  under limited conditions; some test degradation is allowed;
+- **alpha** - app has some may be working functionality and features under
+  limited conditions; some test degradation is allowed;
 
-- **beta** - app passed integration test, confirming app follow its
-  api specification; no test degradation is allowed;
+- **beta** - app passed integration test, confirming app follow its api
+  specification; no test degradation is allowed;
 
   > integration tests **must** cover all api specification
   > or no *beta* label allowed;
 
-- **rc** `[short for release candidate]`- local and deployed versions
-  of the app passed integration api tests;
+- **rc** `[short for release candidate]`- local and deployed versions of the app
+  passed integration api tests;
 
-- `[no suffix]` *implies **stable*** - same as `rc`, but must be
-  deployed and used for a some period of time or/and tested
-  with even more commits;
+- `[no suffix]` *implies **stable*** - same as `rc`, but must be deployed and
+  used for a some period of time or/and tested with even more commits;
 
 > current supported semanthic version is `2.0.0`;
 
