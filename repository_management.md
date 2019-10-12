@@ -178,8 +178,9 @@ to `conventional commits`;
 |   `type` | `refactor`    |   `is::improvement`    | code refactors;           |
 |   `type` | `chore`       |   `is::improvement`    | random changes;           |
 |   `type` | `docs`        |    `scope::docs::_`    | in documentation;         |
+|   `type` | `break`       |          none          | alias `BREAKING CHANGE`;  |
 |  `scope` | `code`        |    `scope::code::_`    | in project code;          |
-|  `scope` | none          |    `scope::code::_`    | alias to `code`;          |
+|  `scope` | none          |    `scope::code::_`    | alias `code`;             |
 |  `scope` | `arch`        | `scope::code::arch::_` | in code architecture;     |
 |  `scope` | `repo`        |    `scope::repo::_`    | in repository;            |
 |  `scope` | `test`        |    `scope::test::_`    | in test code;             |
