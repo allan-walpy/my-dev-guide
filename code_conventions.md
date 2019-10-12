@@ -287,7 +287,7 @@ then `DataMember` or vice-versa;
 - if it returns a different result each time it is called, even if the arguments
   didn't change;
 
-  > example: the NewGuid method returns a different value each time it is called;
+  > example: the `NewGuid` method returns a different value each time it is called;
 
 - if the operation causes a side effect such as changing some internal state not
   directly related to the property
