@@ -409,3 +409,11 @@ there must be an empty commit;
 - `[no suffix]` *implies **stable*** - same as `rc`, but must be
   deployed and used for a some period of time or/and tested
   with even more commits;
+
+## simplified workflow
+
+simplified workflow can be applied for small project;
+
+they do not need implement [iteration livecyles](#iteration-lifecycles);
+
+every commit to `master` branch is new app version (with according changes);
