@@ -1,7 +1,6 @@
 # my own development guidelines
 
 ![version 0.5.3-beta](https://img.shields.io/badge/version-0.5.3--beta-informational?style=for-the-badge)
-[![under mit license](https://img.shields.io/badge/license-MIT-informational?style=for-the-badge)](./license)
 
 development guidelines i am being trying to follow;
 
