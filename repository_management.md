@@ -410,6 +410,8 @@ there must be an empty commit;
   deployed and used for a some period of time or/and tested
   with even more commits;
 
+> current supported semanthic version is `2.0.0`;
+
 ## simplified workflow
 
 simplified workflow can be applied for small project;
