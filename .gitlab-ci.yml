@@ -11,4 +11,4 @@ stages:
 lint:
   stage: lint
   script:
-    - mdl --style all --warnings .
+    - mdl --style markdownlint.rb --warnings .

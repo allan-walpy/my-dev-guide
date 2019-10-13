@@ -196,8 +196,8 @@ specific derived class;
 
 > violations of this rule;
 >
-> * throwing a `NotImplementedException` on overriding the base-class methods;
-> * not honoring the behavior expected by the base class;
+> - throwing a `NotImplementedException` on overriding the base-class methods;
+> - not honoring the behavior expected by the base class;
 
 ### don't refer to derived classes from the base class
 
