@@ -194,10 +194,10 @@ class object`
 wherever a reference to its base class object is used without knowing the
 specific derived class;
 
-> violations of this rule;
->
-> - throwing a `NotImplementedException` on overriding the base-class methods;
-> - not honoring the behavior expected by the base class;
+violations of this rule;
+
+- throwing a `NotImplementedException` on overriding the base-class methods;
+- not honoring the behavior expected by the base class;
 
 ### don't refer to derived classes from the base class
 
