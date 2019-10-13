@@ -1,6 +1,6 @@
 # my own development guidelines
 
-![version 0.6.3-beta](https://img.shields.io/badge/version-0.6.3--beta-informational?style=for-the-badge)
+![version 0.6.4-beta](https://img.shields.io/badge/version-0.6.4--beta-informational?style=for-the-badge)
 
 development guidelines i am being trying to follow;
 

@@ -196,8 +196,8 @@ specific derived class;
 
 > violations of this rule;
 >
-> - throwing a `NotImplementedException` on overriding the base-class methods;
-> - not honoring the behavior expected by the base class;
+> * throwing a `NotImplementedException` on overriding the base-class methods;
+> * not honoring the behavior expected by the base class;
 
 ### don't refer to derived classes from the base class
 
@@ -2250,7 +2250,7 @@ down through the code file;
 5. constructors and the finalizer;
 6. events;
 7. public properties;
-1. other methods and private properties in calling order;
+8. other methods and private properties in calling order;
 
 > declare local functions at the bottom of their containing method bodies after
 > all executable code;
