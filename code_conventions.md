@@ -198,7 +198,6 @@ specific derived class;
 >
 > - throwing a `NotImplementedException` when overriding some of the base-class
 > methods;
->
 > - not honoring the behavior expected by the base class;
 
 ### don't refer to derived classes from the base class
