@@ -196,8 +196,7 @@ specific derived class;
 
 > violations of this rule;
 >
-> - throwing a `NotImplementedException` when overriding some of the base-class
-> methods;
+> - throwing a `NotImplementedException` on overriding the base-class methods;
 > - not honoring the behavior expected by the base class;
 
 ### don't refer to derived classes from the base class
@@ -2245,12 +2244,12 @@ to bottom, as if reading a book, to prevent readers from having to browse up and
 down through the code file;
 
 1. private fields and constants; *in a region*;
-1. public constants
-1. public static read-only fields;
-1. factory methods;
-1. constructors and the finalizer;
-1. events;
-1. public properties;
+2. public constants
+3. public static read-only fields;
+4. factory methods;
+5. constructors and the finalizer;
+6. events;
+7. public properties;
 1. other methods and private properties in calling order;
 
 > declare local functions at the bottom of their containing method bodies after
